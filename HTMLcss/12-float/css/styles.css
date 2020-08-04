@@ -1,0 +1,26 @@
+div {
+    float: left;
+    width: 20%;
+    min-height: 50vh;
+    text-align: center;
+    font-size: 3em;
+}
+
+.green {
+    background: mediumspringgreen;
+    color: midnightblue;
+}
+
+.blue {
+    background: midnightblue;
+    color: mediumspringgreen;
+}
+
+.first {
+    float: right;
+}
+
+.clear
+{
+    clear:both;
+}

@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+}
+
+div{ 
+    box-sizing: border-box; 
+    padding: 20px;
+    border: 2px solid black;
+    
+    margin: 2em;
+    
+    float: left;
+    background: green;
+    width: calc(100% / 3 - 4em);   
+  
+}
+

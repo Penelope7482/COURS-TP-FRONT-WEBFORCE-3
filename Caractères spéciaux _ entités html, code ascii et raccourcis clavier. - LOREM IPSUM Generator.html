@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0069)http://lorem-ipsum.studiovitamine.com/caracteres-speciaux,287,fr.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Caractères spéciaux : entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator</title>
+	<meta name="keywords" lang="fr" content="caracteres speciaux,caractères spéciaux,caractère spéciaux,caractere spéciaux,caracteres spéciaux,caractères spéciaux clavier,caractère speciaux,caractère spéciaux html,caractère ascii,lorem ipsum,faux texte,faux texte latin,lorem ipsum generator">
+<meta name="description" content="Liste des caractères spéciaux classés par caractère html, raccourci clavier et code ascii.">
+
+<meta http-equiv="Content-Language" content="fr">
+<meta http-equiv="Content-Script-Type" content="text/javascript">	<link href="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/style_idSite_32.css" rel="stylesheet" type="text/css">
+<link href="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/styleInterSite.css" rel="stylesheet" type="text/css">
+     
+<script type="text/javascript" src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/jquery-1.1.4.pack.js.téléchargement"></script>	                         
+<script type="text/javascript" src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/interface.js.téléchargement"></script>                      
+<script type="text/javascript" src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/hotkeys.js.téléchargement"></script>    
+<script type="text/javascript" src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/effect.class.js.téléchargement"></script>
+<script type="text/javascript" src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/modalBox.class.js.téléchargement"></script> 
+<script type="text/javascript">
+// <![CDATA[
+var o_effect = new Effect();
+//]]>
+</script><script type="text/javascript">
+// <![CDATA[
+var global_lieu = "fo";
+var global_site_idUnique = 0;
+var global_site_utiliserDynamicFontNbrDeFois = 0;
+var global_site_navigateur = false; 
+var global_site_navigateurVersion = false; 
+if($.browser.msie){$(function(){
+	global_site_navigateur="msie";
+	if(navigator.userAgent.indexOf("MSIE")!=-1){
+		var t_version = navigator.userAgent.split("MSIE ");		
+		var t_version2 = t_version[1].split(";");
+		global_site_navigateurVersion = t_version2[0];
+	}
+});}	
+if($.browser.safari){$(function(){global_site_navigateur="safari";});}	
+if($.browser.mozilla){$(function(){
+	global_site_navigateur="mozilla";
+	if(navigator.userAgent.indexOf("Firefox")!=-1){
+		var t_version = navigator.userAgent.split("Firefox/");
+		global_site_navigateurVersion = t_version[1];
+	}
+});}	
+var global_site_os = false; 
+if(navigator.appVersion.indexOf("Win")!=-1){global_site_os="windows";}	
+if(navigator.appVersion.indexOf("Mac")!=-1){global_site_os="mac";}
+if(navigator.appVersion.indexOf("X11")!=-1){global_site_os="unix";}
+if(navigator.appVersion.indexOf("Linux")!=-1){global_site_os="linux";}
+//]]>
+</script>
+<script type="text/javascript">
+// <![CDATA[
+	function global_site_transformerUnArticle(idArticle){
+				if($("#"+idArticle+" .divArticleNom h2").html()!=null && $("#"+idArticle+" .divArticleContenu").html()==null && $("#"+idArticle+" .divArticleImage1").html()==null){
+			$("#"+idArticle+" .divArticleNom h2").css("marginBottom","0px");
+		}
+				if($("#"+idArticle+" .divArticleContenu").html()==null && $("#"+idArticle+" .divArticleImage1").html()!=null){
+			$("#"+idArticle+" .divArticleImage1 img").css("marginBottom","0px");
+		}
+	}
+//]]>
+</script><script type="text/javascript">
+// <![CDATA[
+function global_site_creerIdUnique(){
+	return global_site_idUnique++;
+}
+function global_site_trouverDimensionEspaceLibreNavigateur(){
+	var largeur = 0, hauteur = 0;
+	if( typeof(window.innerWidth) == 'number') 
+	{
+		largeur = window.innerWidth;
+		hauteur = window.innerHeight;
+	} 
+	else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight )) 
+	{
+		largeur = document.documentElement.clientWidth;
+		hauteur = document.documentElement.clientHeight;
+	} 
+	else if(document.body && (document.body.clientWidth || document.body.clientHeight)) 
+	{
+		largeur = document.body.clientWidth;
+		hauteur = document.body.clientHeight;
+	}
+	else 
+	{
+		largeur = -1;
+		hauteur = -1;
+	}  
+	var t_dim = new Array();
+	t_dim[0] = hauteur;
+	t_dim[1] = largeur;
+
+	return t_dim;
+}
+function global_site_verifierSiUnArticleEstVide(idArticle){
+	//alert(idArticle);
+	if($("#"+idArticle+" .divArticleNom").html()!="" && $("#"+idArticle+" .divArticleNom").html()!=null){
+		return false;
+	}
+	if($("#"+idArticle+" .divArticleContenu").html()!="" && $("#"+idArticle+" .divArticleContenu").html()!=null){
+		return false;
+	}
+	if($("#"+idArticle+" .divArticleImage1").html()!="" && $("#"+idArticle+" .divArticleImage1").html()!=null){
+		return false;
+	}
+	return true;
+}
+function global_site_transformerArticleDeTouteLaPage(){
+	var t_article = $(".divArticle");
+	for(var i=0; i<t_article.length; i++){
+		var idArticleDom = $(t_article[i]).attr("id");
+				if(global_site_verifierSiUnArticleEstVide(idArticleDom)==true){
+							$(t_article[i]).remove();
+						}else{
+			var idArticle = $(t_article[i]).attr("id");
+			global_site_transformerUnArticle(idArticle);
+		}
+	}
+}
+function global_site_transformerZoneEditionDeTouteLaPage(){
+	var t_zoneEdition = $(".divZoneEdition");
+	for(var i=0; i<t_zoneEdition.length; i++){	
+					if($(t_zoneEdition[i]).html()==""){
+				$(t_zoneEdition[i]).remove();
+			}
+			}
+}
+function global_site_afficherErreur(msg,url,l) {
+	txt="Erreur javascript.\n\n"; 
+	txt+="Error: " + msg + "\n"; 
+	txt+="URL: " + url + "\n"; 
+	txt+="Line: " + l + "\n\n"; 	
+	 
+	return true; 	
+}
+function global_site_deprotegerChainePourAttributId(chaine){
+	chaine = chaine.replace(new RegExp("(XXXesperluetteXXX)", "g"), "&");
+	chaine = chaine.replace(new RegExp("(XXXpointVirguleXXX)", "g"), ";");
+	chaine = chaine.replace(new RegExp("(XXXespaceXXX)", "g"), " ");
+	chaine = chaine.replace(new RegExp("(XXXegaleXXX)", "g"), "=");
+	return chaine; 	
+}
+function global_site_afficherPopupCentrer(url,largeur,hauteur){					
+	var x = ((screen.width)/2 - (largeur)/2);
+	var y = ((screen.height)/2 - (hauteur)/2);
+	date_t = new Date;
+	time = date_t.getTime();
+	winprops = 'height='+hauteur+',width='+largeur+',top='+y+',left='+x;
+	win = window.open(url, time, winprops)
+}
+
+function global_site_ajouterParametreGET(url, paramNom, paramValeur){
+	var urlFinal = "";
+	var t_url = url.split("?");
+	if(t_url.length == 1){
+		// pas de queryString
+		urlFinal = url+"?"+paramNom+"="+paramValeur;
+	}else if(t_url.length == 2){
+		// il y a une queryString
+		var paramAAjouterPresentDansQueryString = "non";
+		var t_queryString = t_url[1].split("&");
+		var t_param = new Array();
+		for(var i=0; i<t_queryString.length; i++){
+			t_param = t_queryString[i].split("=");
+			if(t_param[0]==paramNom){
+				var paramAAjouterPresentDansQueryString = "oui";
+			}
+		}
+		if(paramAAjouterPresentDansQueryString=="non"){
+			// le parametre � ajouter n'existe pas encore dans la queryString
+			urlFinal = url+"&"+paramNom+"="+paramValeur;
+		}else if(paramAAjouterPresentDansQueryString=="oui"){
+			// le parametre � ajouter existe d�j� dans la queryString
+			// donc on va reconstruire l'URL
+			urlFinal = t_url[0]+"?";
+			for(var i=0; i<t_queryString.length; i++){
+				if(i>0){
+					urlFinal += "&";
+				}
+				t_param = t_queryString[i].split("=");
+				if(t_param[0]==paramNom){
+					urlFinal += paramNom+"="+paramValeur;
+				}else{
+					urlFinal += t_param[0]+"="+t_param[1];
+				}
+			}
+		}
+	}
+	return urlFinal;
+}
+function global_site_urlDecode(chaine){
+	chaine = decodeURIComponent(chaine);
+	chaine = chaine.replace(/\+/g," ");
+	return chaine;
+}
+$(document).ready(
+	function(){ 
+				window.onerror = global_site_afficherErreur;
+				global_site_transformerArticleDeTouteLaPage();
+				global_site_transformerZoneEditionDeTouteLaPage();
+										o_modalBox1 = new ModalBox(1,5000,{backgroundOpacity:'0.5'});
+						// si on clic sur 'ESC' (pour Firefox 3.5.2)
+			jQuery.hotkeys.add('esc',function(){			
+				agirSiClicSurEsc();
+			});
+			// si on clic sur 'ESC' (pour les autres navigateurs : IE8, Safari 4.0.2, Chrome 2.0)
+			$(document).bind('keydown',
+				function(evenement){
+					if(evenement.keyCode==27){					
+						agirSiClicSurEsc();
+					}	
+				}
+			);
+			function agirSiClicSurEsc(){
+								var navigateurCompatible = true;
+				if(global_site_navigateur!="mozilla" && global_site_navigateur!="msie" && global_site_navigateur!="safari"){
+					navigateurCompatible = false;
+				}else if(global_site_navigateur=="msie" && global_site_navigateurVersion.indexOf("7.")==-1 && global_site_navigateurVersion.indexOf("8.")==-1){
+					navigateurCompatible = false;
+				}
+								if(navigateurCompatible==false){
+										var htmlAlerte  = "";
+					htmlAlerte += "<div style='margin-left:auto;margin-right:auto;margin-top:50px;padding:20px;width:500px;border:2px solid #000000;background-color:#ffffff;color:#000000;'>";
+					htmlAlerte += "Vitamine CMS n'est pas compatible avec votre navigateur ou sa version.<br />";
+					htmlAlerte += "Pour utiliser Vitamine CMS de mani&egrave;re optimale,<br />nous vous conseillons de <a href='http://www.mozilla-europe.org/fr/firefox/'>t&eacute;l&eacute;charger Firefox</a> gratuitement et/ou d'installer sa derni&egrave;re version.<br /><br />";
+					htmlAlerte += "A tout de suite...<br />";
+					htmlAlerte += "</div>";
+					$("body").html(htmlAlerte);
+				}else{
+					if(global_site_os=="mac" && global_site_navigateur=="mozilla" && global_site_navigateurVersion.indexOf("2.")==0){
+												var htmlAlerte  = "";
+						htmlAlerte += "<div style='text-align:center;padding-top:40px;font-size:11px;'>";		
+						htmlAlerte += "Pour vous connecter, veuillez cliquer sur le lien ci-dessous :";
+						htmlAlerte += "<br /><br /><br />";
+						htmlAlerte += "<a href='http://lorem-ipsum.studiovitamine.com/admin/index.php?origine=bofo&referer=http://lorem-ipsum.studiovitamine.com/caracteres-speciaux,287,fr.html' style='font-size:11px;'>Formulaire d'authentification</a>";
+						htmlAlerte += "<br /><br /><br /><br />";
+						htmlAlerte += "</div>";
+						htmlAlerte = htmlAlerte.replace(/'/g,"###apostrophe###");
+						htmlAlerte = htmlAlerte.replace(/\"/g,"###doublequote###");
+						o_modalBox1.open(400,2,'Connectez-vous...',htmlAlerte,{dataType:'html',focus:true});
+					}else{
+												o_modalBox1.open(550,460,'Connectez-vous...',"http://lorem-ipsum.studiovitamine.com/admin/index.php?origine=bofo");
+					}
+				}					
+			}				
+								o_modalBox5 = new ModalBox(5,5000,{backgroundOpacity:'0.5'});
+	}
+);
+//]]>
+</script><link rel="shortcut icon" href="http://lorem-ipsum.studiovitamine.com/image/idSite_32/iconedusite16x16-32-iconedusite16x16fr-fr1227256807-L16.gif">
+</head>
+<body><div id="divModalBoxGlobal_5" style="position:fixed;width:100%;display:none;z-index:5001;">	<div id="divModalBox_5" style="position:relative;display:none;overflow:hidden;">		<div id="divModalBox_5_close" style="position:absolute;display:block;">X</div>		<div id="divModalBox_5_titre" style="cursor: move; user-select: none;"></div>		<div id="divModalBox_5_contenu" style="overflow:hidden;">			<iframe src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/saved_resource.html" id="iframeModalBox_5" name="iframeModalBox_5" onload="" frameborder="0" style="width:100%;"></iframe>		</div>		<div id="divModalBox_5_blur" class="divModalBox_divOnBlurCacher"></div>	</div></div><div id="divModalBoxFond_5" style="position:fixed;width:100%;display:none;z-index:5000;"></div><div id="divModalBoxGlobal_1" style="position:fixed;width:100%;display:none;z-index:5001;">	<div id="divModalBox_1" style="position:relative;display:none;overflow:hidden;">		<div id="divModalBox_1_close" style="position:absolute;display:block;">X</div>		<div id="divModalBox_1_titre" style="cursor: move; user-select: none;"></div>		<div id="divModalBox_1_contenu" style="overflow:hidden;">			<iframe src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/saved_resource(1).html" id="iframeModalBox_1" name="iframeModalBox_1" onload="" frameborder="0" style="width:100%;"></iframe>		</div>		<div id="divModalBox_1_blur" class="divModalBox_divOnBlurCacher"></div>	</div></div><div id="divModalBoxFond_1" style="position:fixed;width:100%;display:none;z-index:5000;"></div>
+	<div id="divInterSiteFond">
+	<div><img src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/InterSite_ReseauInternet.gif" class="imgInterSiteImageReseauInternet"></div>
+	<div>
+		<ul id="menuInterSite">
+						<li><a href="http://www.lacultureduweb.com/" class="" title="Le portail du webmaster">La culture du web</a></li>
+						<li><a href="http://blog.studiovitamine.com/" class="" title="L&#39;info web au quotidien">Le Blog</a></li>
+						<li><a href="http://ergonomie-web.studiovitamine.com/" class="" title="Ergonomie web : faire un site de qualit� ">Ergonomie web</a></li>
+						<li><a href="http://lorem-ipsum.studiovitamine.com/" class="menuInterSiteLienSelectionne" title="Lorem Ipsum : generateur de faux texte">Lorem Ipsum</a></li>
+						<li><a href="http://mon-adresse-ip.studiovitamine.com/" class="" title="Mon adresse IP">IP</a></li>
+						<li><a href="http://ma-premiere-page-web.studiovitamine.com/" class="" title="Comment creer un site Internet en 7 etapes">Créer un site</a></li>
+						<li><a href="http://dico.studiovitamine.com/" class="" title="Dictionnaire informatique">Dico</a></li>
+						<li><a href="http://www.studiovitamine.com/outil-de-gestion-de-contenu,268,fr.html" class="" target="_blank" title="Vitamine CMS est un outil de gestion de contenu">Vitamine CMS</a></li>
+			<li style="border-right:1px solid #ffffff;"><a href="http://www.studiovitamine.com/" target="blank" id="aAgenceWeb" title="Agence de creation site internet et agence web">L'Agence web</a></li>
+			<script>
+				$('#aAgenceWeb').html("L'Agence web");
+			</script>
+		</ul>
+		<div><a href="http://www.studiovitamine.com/"><img src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/InterSite_ByStudioVitamine.gif" style="float:right" alt="Agence creation de site internet"></a></div>
+	</div>
+</div><div id="divGlobal">
+<div id="divGeneral">
+
+	
+	<a href="http://webmarketing.studiovitamine.com/landing-audit-seo/" target="_blank">
+		<img src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/seo.gif" alt="AUDIT SEO GRATUIT" width="100%">
+	</a><div id="divBandeau">
+			<div>
+				<a href="http://lorem-ipsum.studiovitamine.com/" title="Lorem Ipsum Generator"><img src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/banniere.gif" style="border=0px;" alt="Lorem Ipsum Generator"></a>
+			</div>
+
+	<div id="divBandeauThemeAssocier"></div>
+</div><div id="divMenuNavigation">
+		<div class="divPlanDuSite divPlanDuSiteMenuNavigation" id="divPlanDuSite_0_XXXidUnique15928967231912182XXX_">
+											<div id="divMenuLinks">
+						<a href="http://lorem-ipsum.studiovitamine.com/" title="lorem ipsum generator"> Générateur de faux texte</a>
+				</div>									<div id="divMenuLinks">
+						<a href="http://lorem-ipsum.studiovitamine.com/caracteres-speciaux,287,fr.html" title="Voir la liste des caractères spéciaux."> Caractères spéciaux</a>
+				</div>									<div id="divMenuLinks">
+						<a href="http://lorem-ipsum.studiovitamine.com/suggerer-une-idee,288,fr.html" title="Suggérer une idee"> Suggérer une idee</a>
+				</div>		<script type="text/javascript">
+			function ouvrirMenuNavigation(idPage){
+				if($("#divMenuNavigationProfondeur2_"+idPage).css("display")=="none"){
+					$("#divMenuNavigationProfondeur2_"+idPage).BlindDown(500);
+				}else{
+					$("#divMenuNavigationProfondeur2_"+idPage).BlindUp(500);	
+				}
+			}
+			function survolerMenuNavigationProfondeur2(domDiv, action){
+				if(action=="over"){
+					$(domDiv).removeClass("divMenuNavigationProfondeur2");
+					$(domDiv).addClass("divMenuNavigationProfondeur2_hover");
+				}	
+				if(action=="out"){
+					$(domDiv).removeClass("divMenuNavigationProfondeur2_hover");
+					$(domDiv).addClass("divMenuNavigationProfondeur2");
+				}	
+			}
+		</script>
+	</div>
+	<div class="divClearBoth"></div>
+</div><div id="divPageInterne">
+	<div id="divPageInterne2">
+				<h1>Caracteres speciaux</h1>
+		<div>
+			<!--debutZoneEdition_12--><div class="divZoneEdition" id="divZoneEdition_12" title=""><!--debutArticle_701--><div class="divArticle divArticleGabarit_30" id="divArticle_701">	
+<div class="divArticleNom"><h2>Caractères spéciaux : Comment ça marche ?</h2></div>
+<div class="divArticleContenu"><div>Vous trouverez ci-dessous une <b>liste complète des caractères spéciaux</b>, classés par catégories.</div><div>Pour utiliser le code clavier, vous devez maintenir appuyer la touche Alt, écrire les chiffres qui suivent le +, puis relâcher la touche Alt.</div><div>&nbsp;</div><div>Les caractere speciaux sont classés par genre. Les tableaux donnent leurs codes entités <a href="http://dico.studiovitamine.com/definition,141,fr/html,375,fr.html?id=232" title="Définition HTML">HTML</a>, caractère ASCII, code clavier, ainsi que la description.</div></div>
+<div class="divClearBoth"></div></div><!--finArticle_701--><!--debutArticle_699--><div class="divArticle divArticleGabarit_30" id="divArticle_699">	
+<div class="divArticleNom"><h2>Caractères spéciaux : Liste générale</h2></div>
+<div class="divArticleContenu"><table style="width: 670px;" class="tableCaractereSp"> <caption>Liste des caractere speciaux : générale</caption> <thead> <tr> <th class="thCaractereSp1">Caractères spéciaux</th> <th class="thCaractereSp2">Entités HTML</th> <th class="thCaractereSp3">Caractère ASCII</th> <th class="thCaractereSp4">Code clavier</th> <th class="thCaractereSp5">Description des caractères</th> </tr> </thead> <tbody> <tr> <th>&nbsp;</th> <td>&amp;nbsp;</td> <td>&amp;#160;</td> <td>Alt+0160</td> <td>Espace insécable</td> </tr> <tr> <th>­</th> <td>&amp;shy;</td> <td>&amp;#173;</td> <td>Alt+0173</td> <td>Tiret de césure optionnelle</td> </tr> <tr> <th>‎</th> <td>&amp;lrm;</td> <td>&amp;#8206;</td> <td>&nbsp;</td> <td>Marque gauche-à-droite</td> </tr> <tr> <th>‏</th> <td>&amp;rlm;</td> <td>&amp;#8207;</td> <td>&nbsp;</td> <td>Marque droite-à-gauche</td> </tr> <tr> <th>"</th> <td>&amp;quot;</td> <td>&amp;#34;</td> <td>Alt+034</td> <td>Guillemet double (anglais)</td> </tr> <tr> <th>«</th> <td>&amp;laquo;</td> <td>&amp;#171;</td> <td>Alt+0171</td> <td>Guillemet français ouvrant</td> </tr> <tr> <th>»</th> <td>&amp;raquo;</td> <td>&amp;#187;</td> <td>Alt+0187</td> <td>Guillemet français fermant</td> </tr> <tr> <th>‹</th> <td>&amp;lsaquo;</td> <td>&amp;#8249;</td> <td>&nbsp;</td> <td>Guillemet français simple ouvrant</td> </tr> <tr> <th>›</th> <td>&amp;rsaquo;</td> <td>&amp;#8250;</td> <td>&nbsp;</td> <td>Guillemet français simple fermant</td> </tr> <tr> <th>“</th> <td>&amp;ldquo;</td> <td>&amp;#8220;</td> <td>Alt+0147</td> <td>Guillemet double ouvrant (anglais)</td> </tr> <tr> <th>”</th> <td>&amp;rdquo;</td> <td>&amp;#8221;</td> <td>Alt+0148</td> <td>Guillemet double fermant (anglais)</td> </tr> <tr> <th>„</th> <td>&amp;bdquo;</td> <td>&amp;#8222;</td> <td>&nbsp;</td> <td>Guillemet double fermant bas (anglais)</td> </tr> <tr> <th>'</th> <td>&amp;apos;</td> <td>&amp;#39;</td> <td>Alt+039</td> <td>Guillemet simple droit</td> </tr> <tr> <th>‘</th> <td>&amp;lsquo;</td> <td>&amp;#8216;</td> <td>Alt+0145</td> <td>Guillemet simple ouvrant (anglais)</td> </tr> <tr> <th>’</th> <td>&amp;rsquo;</td> <td>&amp;#8217;</td> <td>Alt+0146</td> <td>Guillemet simple fermant (anglais)</td> </tr> <tr> <th>‚</th> <td>&amp;sbquo;</td> <td>&amp;#8218;</td> <td>&nbsp;</td> <td>Guillemet simple fermant (anglais)</td> </tr> <tr> <th>…</th> <td>&amp;hellip;</td> <td>&amp;#8230;</td> <td>&nbsp;</td> <td>Points de suspension</td> </tr> <tr> <th>!</th> <td>!</td> <td>&amp;#33;</td> <td>Alt+033</td> <td>Point d'exclamation</td> </tr> <tr> <th>¡</th> <td>&amp;iexcl;</td> <td>&amp;#161;</td> <td>Alt+173</td> <td>Point d'exclamation inversé</td> </tr> <tr> <th>?</th> <td>?</td> <td>&amp;#63;</td> <td>Alt+063</td> <td>Point d'interrogation</td> </tr> <tr> <th>¿</th> <td>&amp;iquest;</td> <td>&amp;#191;</td> <td>Alt+0191</td> <td>Point d'interrogation inversé</td> </tr> <tr> <th>(</th> <td>(</td> <td>&amp;#40;</td> <td>Alt+040</td> <td>Parenthése ouvrante</td> </tr> <tr> <th>)</th> <td>)</td> <td>&amp;#41;</td> <td>Alt+041</td> <td>Parenthése fermante</td> </tr> <tr> <th>[</th> <td>[</td> <td>&amp;#91;</td> <td>Alt+091</td> <td>Crochet ouvrant</td> </tr> <tr> <th>]</th> <td>]</td> <td>&amp;#93;</td> <td>Alt+093</td> <td>Crochet fermant</td> </tr> <tr> <th>{</th> <td>{</td> <td>&amp;#123;</td> <td>Alt+0123</td> <td>Accolade ouvrante</td> </tr> <tr> <th>}</th> <td>}</td> <td>&amp;#125;</td> <td>Alt+0124</td> <td>Accolade fermante</td> </tr> <tr> <th>¨</th> <td>&amp;uml;</td> <td>&amp;#168;</td> <td>Alt+0168</td> <td>Tréma</td> </tr> <tr> <th>´</th> <td>&amp;acute;</td> <td>&amp;#180;</td> <td>Alt+0180</td> <td>Accent aigu</td> </tr> <tr> <th>`</th> <td>`</td> <td>&amp;#96;</td> <td>Alt+096</td> <td>Accent grave</td> </tr> <tr> <th>^</th> <td>^</td> <td>&amp;#94;</td> <td>Alt+094</td> <td>Accent circonflexe</td> </tr> <tr> <th>ˆ</th> <td>&amp;circ;</td> <td>&amp;#710;</td> <td>&nbsp;</td> <td>Accent circonflexe</td> </tr> <tr> <th>~</th> <td>~</td> <td>&amp;#126;</td> <td>Alt+0126</td> <td>Tilde</td> </tr> <tr> <th>˜</th> <td>&amp;tilde;</td> <td>&amp;#732;</td> <td>&nbsp;</td> <td>Petit tilde</td> </tr> <tr> <th>¸</th> <td>&amp;cedil;</td> <td>&amp;#184;</td> <td>Alt+0184</td> <td>Cédille</td> </tr> <tr> <th>#</th> <td>#</td> <td>&amp;#35;</td> <td>Alt+035</td> <td>Dièse</td> </tr> <tr> <th>*</th> <td>*</td> <td>&amp;#42;</td> <td>Alt+042</td> <td>Etoile</td> </tr> <tr> <th>,</th> <td>,</td> <td>&amp;#44;</td> <td>Alt+044</td> <td>Virgule</td> </tr> <tr> <th>.</th> <td>.</td> <td>&amp;#46;</td> <td>Alt+046</td> <td>Point</td> </tr> <tr> <th>:</th> <td>:</td> <td>&amp;#58;</td> <td>Alt+058</td> <td>Deux-points</td> </tr> <tr> <th>;</th> <td>;</td> <td>&amp;#59;</td> <td>Alt+059</td> <td>Point-virgule</td> </tr> <tr> <th>·</th> <td>&amp;middot;</td> <td>&amp;#183;</td> <td>Alt+0183</td> <td>Point médian</td> </tr> <tr> <th>•</th> <td>&amp;bull;</td> <td>&amp;#8226;</td> <td>Alt+7</td> <td>Gros point médian</td> </tr> <tr> <th>¯</th> <td>&amp;macr;</td> <td>&amp;#175;</td> <td>Alt+0175</td> <td>Macron</td> </tr> <tr> <th>‾</th> <td>&amp;oline;</td> <td>&amp;#8254;</td> <td>&nbsp;</td> <td>Tiret en chef</td> </tr> <tr> <th>-</th> <td>-</td> <td>&amp;#45;</td> <td>Alt+045</td> <td>Tiret quart-cadratin</td> </tr> <tr> <th>–</th> <td>&amp;ndash;</td> <td>&amp;#8211;</td> <td>&nbsp;</td> <td>Tiret demi-cadratin</td> </tr> <tr> <th>—</th> <td>&amp;mdash;</td> <td>&amp;#8212;</td> <td>&nbsp;</td> <td>Tiret cadratin</td> </tr> <tr> <th>_</th> <td>_</td> <td>&amp;#95;</td> <td>Alt+095</td> <td>Tiret bas (underscore)</td> </tr> <tr> <th>|</th> <td>|</td> <td>&amp;#124;</td> <td>Alt+0124</td> <td>Séparateur vertical (pipe)</td> </tr> <tr> <th>¦</th> <td>&amp;brvbar;</td> <td>&amp;#166;</td> <td>Alt+0166</td> <td>Barre verticale scindée</td> </tr> <tr> <th>‌</th> <td>&amp;zwnj;</td> <td>&amp;#8204;</td> <td>&nbsp;</td> <td>Antiliant sans chasse</td> </tr> <tr> <th>‍</th> <td>&amp;zwj;</td> <td>&amp;#8205;</td> <td>&nbsp;</td> <td>Liant sans chasse</td> </tr> <tr> <th>†</th> <td>&amp;dagger;</td> <td>&amp;#8224;</td> <td>&nbsp;</td> <td>Obèle</td> </tr> <tr> <th>‡</th> <td>&amp;Dagger;</td> <td>&amp;#8225;</td> <td>&nbsp;</td> <td>Double obèle</td> </tr> <tr> <th>§</th> <td>&amp;sect;</td> <td>&amp;#167;</td> <td>Alt+0167</td> <td>Section</td> </tr> <tr> <th>¶</th> <td>&amp;para;</td> <td>&amp;#182;</td> <td>Alt+0182</td> <td>Paragraphe</td> </tr> <tr> <th>©</th> <td>&amp;copy;</td> <td>&amp;#169;</td> <td>Alt+0169</td> <td>Copyright</td> </tr> <tr> <th>®</th> <td>&amp;reg;</td> <td>&amp;#174;</td> <td>Alt+0174</td> <td>Marque déposée</td> </tr> <tr> <th>™</th> <td>&amp;trade;</td> <td>&amp;#8482;</td> <td>&nbsp;Alt+0153</td> <td>Marque commerciale</td> </tr> <tr> <th>&amp;</th> <td>&amp;amp;</td> <td>&amp;#38;</td> <td>Alt+038</td> <td>Et commercial</td> </tr> <tr> <th>@</th> <td>@</td> <td>&amp;#64;</td> <td>Alt+064</td> <td>Arobase</td> </tr> <tr> <th>/</th> <td>/</td> <td>&amp;#47;</td> <td>Alt+047</td> <td>Slash</td> </tr> <tr> <th>\</th> <td>&nbsp;\</td> <td>&amp;#92;</td> <td>Alt+092</td> <td>Anti-slash</td> </tr> <tr> <th>◊</th> <td>&amp;loz;</td> <td>&amp;#9674;</td> <td>&nbsp;</td> <td>Losange</td> </tr> <tr> <th>♠</th> <td>&amp;spades;</td> <td>&amp;#9824;</td> <td>Alt+6</td> <td>Pique noir</td> </tr> <tr> <th>♣</th> <td>&amp;clubs;</td> <td>&amp;#9827;</td> <td>Alt+5</td> <td>Trèfle noir</td> </tr> <tr> <th>♥</th> <td>&amp;hearts;</td> <td>&amp;#9829;</td> <td>Alt+3</td> <td>Cœur noir</td> </tr> <tr> <th>♦</th> <td>&amp;diams;</td> <td>&amp;#9830;</td> <td>&nbsp;</td> <td>Carreau noir</td> </tr> <tr> <th>←</th> <td>&amp;larr;</td> <td>&amp;#8592;</td> <td>Alt+27</td> <td>Flèche vers la gauche</td> </tr> <tr> <th>↑</th> <td>&amp;uarr;</td> <td>&amp;#8593;</td> <td>Alt+24</td> <td>Flèche vers le haut</td> </tr> <tr> <th>→</th> <td>&amp;rarr;</td> <td>&amp;#8594;</td> <td>Alt+26</td> <td>Flèche vers la droite</td> </tr> <tr> <th>↓</th> <td>&amp;darr;</td> <td>&amp;#8595;</td> <td>Alt+25</td> <td>Flèche vers le bas</td> </tr> <tr> <th>↔</th> <td>&amp;harr;</td> <td>&amp;#8596;</td> <td>Alt+29</td> <td>Flèche bilatérale gauche-droite</td> </tr> </tbody></table></div>
+<div class="divClearBoth"></div></div><!--finArticle_699--><!--debutArticle_704--><div class="divArticle divArticleGabarit_30" id="divArticle_704">	
+<div class="divArticleNom"><h2>Caractères spéciaux : Alphabétique avec accents</h2></div>
+<div class="divArticleContenu"><table class="tableCaractereSp" style="width: 670px;"> <caption>Liste des caractere speciaux : les accents</caption> <thead> <tr> <th class="thCaractereSp1">Caractères spéciaux</th> <th class="thCaractereSp2">Entités HTML</th> <th class="thCaractereSp3">Caractère ASCII</th> <th class="thCaractereSp4">Code clavier</th> <th class="thCaractereSp5">Description des caractères</th> </tr> </thead> <tbody> <tr> <th>á</th> <td>&amp;aacute;</td> <td>&amp;#225;</td> <td>Alt+0225</td> <td>a accent aigu</td> </tr> <tr> <th>Á</th> <td>&amp;Aacute;</td> <td>&amp;#193;</td> <td>Alt+0193</td> <td>A muscule accent aigu</td> </tr> <tr> <th>â</th> <td>&amp;acirc;</td> <td>&amp;#226;</td> <td>Alt+0226</td> <td>a accent circonflexe</td> </tr> <tr> <th>Â</th> <td>&amp;Acirc;</td> <td>&amp;#194;</td> <td>Alt+0194</td> <td>A accent circonflexe</td> </tr> <tr> <th>à</th> <td>&amp;agrave;</td> <td>&amp;#224;</td> <td>Alt+0224</td> <td>a accent grave</td> </tr> <tr> <th>À</th> <td>&amp;Agrave;</td> <td>&amp;#192;</td> <td>Alt+0192</td> <td>A majuscule accent grave</td> </tr> <tr> <th>å</th> <td>&amp;aring;</td> <td>&amp;#229;</td> <td>Alt+0229</td> <td>&nbsp;</td> </tr> <tr> <th>Å</th> <td>&amp;Aring;</td> <td>&amp;#197;</td> <td>Alt+0197</td> <td>&nbsp;</td> </tr> <tr> <th>ã</th> <td>&amp;atilde;</td> <td>&amp;#227;</td> <td>Alt+0227</td> <td>a avec caron</td> </tr> <tr> <th>Ã</th> <td>&amp;Atilde;</td> <td>&amp;#195;</td> <td>Alt+0195</td> <td>A avec caron</td> </tr> <tr> <th>ä</th> <td>&amp;auml;</td> <td>&amp;#228;</td> <td>Alt+0228</td> <td>a tréma</td> </tr> <tr> <th>Ä</th> <td>&amp;Auml;</td> <td>&amp;#196;</td> <td>Alt+0196</td> <td>A tréma</td> </tr> <tr> <th>æ</th> <td>&amp;aelig;</td> <td>&amp;#230;</td> <td>Alt+0230</td> <td>æ ligaturés</td> </tr> <tr> <th>Æ</th> <td>&amp;AElig;</td> <td>&amp;#198;</td> <td>Alt+0198</td> <td>AE ligaturés</td> </tr> <tr> <th>ç</th> <td>&amp;ccedil;</td> <td>&amp;#231;</td> <td>Alt+0231</td> <td>c capitale cédille</td> </tr> <tr> <th>Ç</th> <td>&amp;Ccedil;</td> <td>&amp;#199;</td> <td>Alt+0199</td> <td>C capitale cédille</td> </tr> <tr> <th>é</th> <td>&amp;eacute;</td> <td>&amp;#233;</td> <td>Alt+0233</td> <td>e accent grave</td> </tr> <tr> <th>É</th> <td>&amp;Eacute;</td> <td>&amp;#201;</td> <td>Alt+0201</td> <td>e accent aigu</td> </tr> <tr> <th>ê</th> <td>&amp;ecirc;</td> <td>&amp;#234;</td> <td>Alt+0234</td> <td>e accent circonflexe</td> </tr> <tr> <th>Ê</th> <td>&amp;Ecirc;</td> <td>&amp;#202;</td> <td>Alt+0202</td> <td>E accent aigu</td> </tr> <tr> <th>è</th> <td>&amp;egrave;</td> <td>&amp;#232;</td> <td>Alt+0232</td> <td>E accent circonflexe</td> </tr> <tr> <th>È</th> <td>&amp;Egrave;</td> <td>&amp;#200;</td> <td>Alt+0200</td> <td>E accent grave</td> </tr> <tr> <th>ë</th> <td>&amp;euml;</td> <td>&amp;#235;</td> <td>Alt+0235</td> <td>e tréma</td> </tr> <tr> <th>Ë</th> <td>&amp;Euml;</td> <td>&amp;#203;</td> <td>Alt+0203</td> <td>E tréma</td> </tr> <tr> <th>í</th> <td>&amp;iacute;</td> <td>&amp;#237;</td> <td>Alt+0237</td> <td>&nbsp;</td> </tr> <tr> <th>Í</th> <td>&amp;Iacute;</td> <td>&amp;#205;</td> <td>Alt+0205</td> <td>&nbsp;</td> </tr> <tr> <th>î</th> <td>&amp;icirc;</td> <td>&amp;#238;</td> <td>Alt+0238</td> <td>i accent circonflexe</td> </tr> <tr> <th>Î</th> <td>&amp;Icirc;</td> <td>&amp;#206;</td> <td>Alt+0206</td> <td>I accent circonflexe</td> </tr> <tr> <th>ì</th> <td>&amp;igrave;</td> <td>&amp;#236;</td> <td>Alt+0236</td> <td>&nbsp;</td> </tr> <tr> <th>Ì</th> <td>&amp;Igrave;</td> <td>&amp;#204;</td> <td>Alt+0204</td> <td>&nbsp;</td> </tr> <tr> <th>ï</th> <td>&amp;iuml;</td> <td>&amp;#239;</td> <td>Alt+0239</td> <td>i tréma</td> </tr> <tr> <th>Ï</th> <td>&amp;Iuml;</td> <td>&amp;#207;</td> <td>Alt+0207</td> <td>I tréma</td> </tr> <tr> <th>ñ</th> <td>&amp;ntilde;</td> <td>&amp;#241;</td> <td>Alt+0241</td> <td>n avec caron</td> </tr> <tr> <th>Ñ</th> <td>&amp;Ntilde;</td> <td>&amp;#209;</td> <td>Alt+0209</td> <td>N avec caron</td> </tr> <tr> <th>ó</th> <td>&amp;oacute;</td> <td>&amp;#243;</td> <td>Alt+0243</td> <td>&nbsp;</td> </tr> <tr> <th>Ó</th> <td>&amp;Oacute;</td> <td>&amp;#211;</td> <td>Alt+0211</td> <td>&nbsp;</td> </tr> <tr> <th>ô</th> <td>&amp;ocirc;</td> <td>&amp;#244;</td> <td>Alt+0244</td> <td>o accent circonflexe</td> </tr> <tr> <th>Ô</th> <td>&amp;Ocirc;</td> <td>&amp;#212;</td> <td>Alt+0212</td> <td>O accent circonflexe</td> </tr> <tr> <th>ò</th> <td>&amp;ograve;</td> <td>&amp;#242;</td> <td>Alt+0242</td> <td>O accent grave</td> </tr> <tr> <th>Ò</th> <td>&amp;Ograve;</td> <td>&amp;#210;</td> <td>Alt+0210</td> <td>o accent grave</td> </tr> <tr> <th>ø</th> <td>&amp;oslash;</td> <td>&amp;#248;</td> <td>Alt+0248</td> <td>o barré</td> </tr> <tr> <th>Ø</th> <td>&amp;Oslash;</td> <td>&amp;#216;</td> <td>Alt+0216</td> <td>O barré</td> </tr> <tr> <th>õ</th> <td>&amp;otilde;</td> <td>&amp;#245;</td> <td>Alt+0245</td> <td>&nbsp;</td> </tr> <tr> <th>Õ</th> <td>&amp;Otilde;</td> <td>&amp;#213;</td> <td>Alt+0213</td> <td>&nbsp;</td> </tr> <tr> <th>ö</th> <td>&amp;ouml;</td> <td>&amp;#246;</td> <td>Alt+0246</td> <td>o tréma</td> </tr> <tr> <th>Ö</th> <td>&amp;Ouml;</td> <td>&amp;#214;</td> <td>Alt+0214</td> <td>O tréma</td> </tr> <tr> <th>œ</th> <td>&amp;oelig;</td> <td>&amp;#156;</td> <td>Alt+0156</td> <td>oe ligaturés</td> </tr> <tr> <th>Œ</th> <td>&amp;OElig;</td> <td>&amp;#140;</td> <td>Alt+0140</td> <td>OE ligaturés</td> </tr> <tr> <th>š</th> <td>&amp;scaron;</td> <td>&amp;#353;</td> <td>Alt+0253</td> <td>&nbsp;</td> </tr> <tr> <th>Š</th> <td>&amp;Scaron;</td> <td>&amp;#352;</td> <td>Alt+0252</td> <td>&nbsp;</td> </tr> <tr> <th>ß</th> <td>&amp;szlig;</td> <td>&amp;#223;</td> <td>Alt+0223</td> <td>&nbsp;</td> </tr> <tr> <th>ð</th> <td>&amp;eth;</td> <td>&amp;#240;</td> <td>Alt+0240</td> <td>&nbsp;</td> </tr> <tr> <th>Ð</th> <td>&amp;ETH;</td> <td>&amp;#208;</td> <td>Alt+0208</td> <td>&nbsp;</td> </tr> <tr> <th>þ</th> <td>&amp;thorn;</td> <td>&amp;#254;</td> <td>Alt+0254</td> <td>thorn (islandais)</td> </tr> <tr> <th>Þ</th> <td>&amp;THORN;</td> <td>&amp;#222;</td> <td>Alt+0222</td> <td>Thorn (islandais)</td> </tr> <tr> <th>ú</th> <td>&amp;uacute;</td> <td>&amp;#250;</td> <td>Alt+0250</td> <td>&nbsp;</td> </tr> <tr> <th>Ú</th> <td>&amp;Uacute;</td> <td>&amp;#218;</td> <td>Alt+0218</td> <td>&nbsp;</td> </tr> <tr> <th>û</th> <td>&amp;ucirc;</td> <td>&amp;#251;</td> <td>Alt+0251</td> <td>u accent circonflexe</td> </tr> <tr> <th>Û</th> <td>&amp;Ucirc;</td> <td>&amp;#219;</td> <td>Alt+0219</td> <td>U accent circonflexe</td> </tr> <tr> <th>ù</th> <td>&amp;ugrave;</td> <td>&amp;#249;</td> <td>Alt+0249</td> <td>u accent grave</td> </tr> <tr> <th>Ù</th> <td>&amp;Ugrave;</td> <td>&amp;#217;</td> <td>Alt+0217</td> <td>U accent grave</td> </tr> <tr> <th>ü</th> <td>&amp;uuml;</td> <td>&amp;#252;</td> <td>Alt+0252</td> <td>u tréma</td> </tr> <tr> <th>Ü</th> <td>&amp;Uuml;</td> <td>&amp;#220;</td> <td>Alt+0220</td> <td>U tréma</td> </tr> <tr> <th>ý</th> <td>&amp;yacute;</td> <td>&amp;#253;</td> <td>Alt+0253</td> <td>&nbsp;</td> </tr> <tr> <th>Ý</th> <td>&amp;Yacute;</td> <td>&amp;#221;</td> <td>Alt+0221</td> <td>&nbsp;</td> </tr> <tr> <th>ÿ</th> <td>&amp;yuml;</td> <td>&amp;#255;</td> <td>Alt+0255</td> <td>y tréma</td> </tr> <tr> <th>Ÿ</th> <td>&amp;Yuml;</td> <td>&amp;#376;</td> <td>&nbsp;</td> <td>Y tréma</td> </tr> </tbody></table></div>
+<div class="divClearBoth"></div></div><!--finArticle_704--><!--debutArticle_702--><div class="divArticle divArticleGabarit_30" id="divArticle_702">	
+<div class="divArticleNom"><h2>Caractères spéciaux : Les monnaies</h2></div>
+<div class="divArticleContenu"><table style="width: 670px;" class="tableCaractereSp"> <caption>Liste des caractere speciaux : monnaie</caption> <thead> <tr> <th class="thCaractereSp1">Caractères spéciaux</th> <th class="thCaractereSp2">Entités HTML</th> <th class="thCaractereSp3">Caractère ASCII</th> <th class="thCaractereSp4">Code clavier</th> <th class="thCaractereSp5">Description des caractères</th> </tr> </thead> <tbody> <tr> <th>¤</th> <td>&amp;curren;</td> <td>&amp;#164;</td> <td>Alt+0164</td> <td>Symbole monnaitaire</td> </tr> <tr> <th>€</th> <td>&amp;euro;</td> <td>&amp;#128;</td> <td>Alt+0128</td> <td>Euro (monnaie Européenne)</td> </tr> <tr> <th>$</th> <td>$</td> <td>&amp;#36;</td> <td>Alt+036</td> <td>Dollar (monnaie Américaine)</td> </tr> <tr> <th>¢</th> <td>&amp;cent;</td> <td>&amp;#162;</td> <td>Alt+0162</td> <td>Cent (monnaie Américaine)</td> </tr> <tr> <th>£</th> <td>&amp;pound;</td> <td>&amp;#163;</td> <td>Alt+0163</td> <td>Pound, Livre sterling (Monnaie anglaise)</td> </tr> <tr> <th>¥</th> <td>&amp;yen;</td> <td>&amp;#165;</td> <td>Alt+0165</td> <td>Yen (Monnaie japonaise)</td> </tr> <tr> <th>ƒ</th> <td>&amp;fnof;</td> <td>&amp;#402;</td> <td>Alt+0131</td> <td>Florin (Idem fonction)</td> </tr> </tbody></table></div>
+<div class="divClearBoth"></div></div><!--finArticle_702--><!--debutArticle_703--><div class="divArticle divArticleGabarit_30" id="divArticle_703">	
+<div class="divArticleNom"><h2>Caractères spéciaux : Alphabet Grec</h2></div>
+<div class="divArticleContenu"><table class="tableCaractereSp" style="width: 670px;"> <caption>Liste des caractere speciaux : l'alphabet grec</caption> <thead> <tr> <th class="thCaractereSp1">Caractères spéciaux</th> <th class="thCaractereSp2">Entités HTML</th> <th class="thCaractereSp3">Caractère ASCII</th> <th class="thCaractereSp4">Code clavier</th> <th class="thCaractereSp5">Description des caractères</th> </tr> </thead> <tbody> <tr> <th>α</th> <td>&amp;alpha;</td> <td>&amp;#945;</td> <td>&nbsp;</td> <td>alpha</td> </tr> <tr> <th>Α</th> <td>&amp;Alpha;</td> <td>&amp;#913;</td> <td>&nbsp;</td> <td>Alpha</td> </tr> <tr> <th>β</th> <td>&amp;beta;</td> <td>&amp;#946;</td> <td>&nbsp;</td> <td>beta</td> </tr> <tr> <th>Β</th> <td>&amp;Beta;</td> <td>&amp;#914;</td> <td>&nbsp;</td> <td>Beta</td> </tr> <tr> <th>γ</th> <td>&amp;gamma;</td> <td>&amp;#947;</td> <td>&nbsp;</td> <td>gamma</td> </tr> <tr> <th>Γ</th> <td>&amp;Gamma;</td> <td>&amp;#915;</td> <td>&nbsp;</td> <td>Gamma</td> </tr> <tr> <th>δ</th> <td>&amp;delta;</td> <td>&amp;#948;</td> <td>&nbsp;</td> <td>delta</td> </tr> <tr> <th>Δ</th> <td>&amp;Delta;</td> <td>&amp;#916;</td> <td>&nbsp;</td> <td>Delta</td> </tr> <tr> <th>ε</th> <td>&amp;epsilon;</td> <td>&amp;#949;</td> <td>&nbsp;</td> <td>epsilon</td> </tr> <tr> <th>Ε</th> <td>&amp;Epsilon;</td> <td>&amp;#917;</td> <td>&nbsp;</td> <td>Epsilon</td> </tr> <tr> <th>ζ</th> <td>&amp;zeta;</td> <td>&amp;#950;</td> <td>&nbsp;</td> <td>zeta</td> </tr> <tr> <th>Ζ</th> <td>&amp;Zeta;</td> <td>&amp;#918;</td> <td>&nbsp;</td> <td>Zeta</td> </tr> <tr> <th>η</th> <td>&amp;eta;</td> <td>&amp;#951;</td> <td>&nbsp;</td> <td>eta</td> </tr> <tr> <th>Η</th> <td>&amp;Eta;</td> <td>&amp;#919;</td> <td>&nbsp;</td> <td>Eta</td> </tr> <tr> <th>θ</th> <td>&amp;theta;</td> <td>&amp;#952;</td> <td>&nbsp;</td> <td>theta</td> </tr> <tr> <th>Θ</th> <td>&amp;Theta;</td> <td>&amp;#920;</td> <td>&nbsp;</td> <td>Theta</td> </tr> <tr> <th>ι</th> <td>&amp;iota;</td> <td>&amp;#953;</td> <td>&nbsp;</td> <td>iota</td> </tr> <tr> <th>Ι</th> <td>&amp;Iota;</td> <td>&amp;#921;</td> <td>&nbsp;</td> <td>Iota</td> </tr> <tr> <th>κ</th> <td>&amp;kappa;</td> <td>&amp;#954;</td> <td>&nbsp;</td> <td>kappa</td> </tr> <tr> <th>Κ</th> <td>&amp;Kappa;</td> <td>&amp;#922;</td> <td>&nbsp;</td> <td>Kappa</td> </tr> <tr> <th>λ</th> <td>&amp;lambda;</td> <td>&amp;#955;</td> <td>&nbsp;</td> <td>lambda</td> </tr> <tr> <th>Λ</th> <td>&amp;Lambda;</td> <td>&amp;#923;</td> <td>&nbsp;</td> <td>Lambda</td> </tr> <tr> <th>μ</th> <td>&amp;mu;</td> <td>&amp;#956;</td> <td>&nbsp;</td> <td>mu</td> </tr> <tr> <th>Μ</th> <td>&amp;Mu;</td> <td>&amp;#924;</td> <td>&nbsp;</td> <td>Mu</td> </tr> <tr> <th>ν</th> <td>&amp;nu;</td> <td>&amp;#957;</td> <td>&nbsp;</td> <td>nu</td> </tr> <tr> <th>Ν</th> <td>&amp;Nu;</td> <td>&amp;#925;</td> <td>&nbsp;</td> <td>Nu</td> </tr> <tr> <th>ξ</th> <td>&amp;xi;</td> <td>&amp;#958;</td> <td>&nbsp;</td> <td>xi</td> </tr> <tr> <th>Ξ</th> <td>&amp;Xi;</td> <td>&amp;#926;</td> <td>&nbsp;</td> <td>Xi</td> </tr> <tr> <th>ο</th> <td>&amp;omicron;</td> <td>&amp;#959;</td> <td>&nbsp;</td> <td>omicron</td> </tr> <tr> <th>Ο</th> <td>&amp;Omicron;</td> <td>&amp;#927;</td> <td>&nbsp;</td> <td>Omicron</td> </tr> <tr> <th>π</th> <td>&amp;pi;</td> <td>&amp;#960;</td> <td>&nbsp;</td> <td>pi</td> </tr> <tr> <th>Π</th> <td>&amp;Pi;</td> <td>&amp;#928;</td> <td>&nbsp;</td> <td>Pi</td> </tr> <tr> <th>ρ</th> <td>&amp;rho;</td> <td>&amp;#961;</td> <td>&nbsp;</td> <td>rho</td> </tr> <tr> <th>Ρ</th> <td>&amp;Rho;</td> <td>&amp;#929;</td> <td>&nbsp;</td> <td>Rho</td> </tr> <tr> <th>σ</th> <td>&amp;sigma;</td> <td>&amp;#963;</td> <td>&nbsp;</td> <td>sigma</td> </tr> <tr> <th>ς</th> <td>&amp;sigmaf;</td> <td>&amp;#962;</td> <td>&nbsp;</td> <td>sigma final</td> </tr> <tr> <th>Σ</th> <td>&amp;Sigma;</td> <td>&amp;#931;</td> <td>&nbsp;</td> <td>Sigma</td> </tr> <tr> <th>τ</th> <td>&amp;tau;</td> <td>&amp;#964;</td> <td>&nbsp;</td> <td>tau</td> </tr> <tr> <th>Τ</th> <td>&amp;Tau;</td> <td>&amp;#932;</td> <td>&nbsp;</td> <td>Tau</td> </tr> <tr> <th>υ</th> <td>&amp;upsilon;</td> <td>&amp;#965;</td> <td>&nbsp;</td> <td>upsilon</td> </tr> <tr> <th>Υ</th> <td>&amp;Upsilon;</td> <td>&amp;#933;</td> <td>&nbsp;</td> <td>Upsilon</td> </tr> <tr> <th>φ</th> <td>&amp;phi;</td> <td>&amp;#966;</td> <td>&nbsp;</td> <td>phi</td> </tr> <tr> <th>Φ</th> <td>&amp;Phi;</td> <td>&amp;#934;</td> <td>&nbsp;</td> <td>Phi</td> </tr> <tr> <th>χ</th> <td>&amp;chi;</td> <td>&amp;#967;</td> <td>&nbsp;</td> <td>chi</td> </tr> <tr> <th>Χ</th> <td>&amp;Chi;</td> <td>&amp;#935;</td> <td>&nbsp;</td> <td>Chi</td> </tr> <tr> <th>ψ</th> <td>&amp;psi;</td> <td>&amp;#968;</td> <td>&nbsp;</td> <td>psi</td> </tr> <tr> <th>Ψ</th> <td>&amp;Psi;</td> <td>&amp;#936;</td> <td>&nbsp;</td> <td>Psi</td> </tr> <tr> <th>ω</th> <td>&amp;omega;</td> <td>&amp;#969;</td> <td>&nbsp;</td> <td>omega</td> </tr> <tr> <th>Ω</th> <td>&amp;Omega;</td> <td>&amp;#937;</td> <td>&nbsp;</td> <td>Omega</td> </tr> </tbody></table></div>
+<div class="divClearBoth"></div></div><!--finArticle_703--><!--debutArticle_705--><div class="divArticle divArticleGabarit_30" id="divArticle_705">	
+<div class="divArticleNom"><h2>Caractères spéciaux : Sciences</h2></div>
+<div class="divArticleContenu"><table style="width: 670px;" class="tableCaractereSp"> <caption>Liste des caractere speciaux : symboles scientifiques</caption> <thead> <tr> <th class="thCaractereSp1">Caractères spéciaux</th> <th class="thCaractereSp2">Entités HTML</th> <th class="thCaractereSp3">Caractère ASCII</th> <th class="thCaractereSp4">Code clavier</th> <th class="thCaractereSp5">Description des caractères</th> </tr> </thead> <tbody> <tr> <th>°</th> <td>&amp;deg;</td> <td>&amp;#176;</td> <td>Alt+0176</td> <td>Degré</td> </tr> <tr> <th>µ</th> <td>&amp;micro;</td> <td>&amp;#181;</td> <td>Alt+0181</td> <td>Mu</td> </tr> <tr> <th>&lt;</th> <td>&amp;lt;</td> <td>&amp;#60;</td> <td>Alt+060</td> <td>Inférieur</td> </tr> <tr> <th>&gt;</th> <td>&amp;gt;</td> <td>&amp;#62;</td> <td>Alt+062</td> <td>Supérieur</td> </tr> <tr> <th>≤</th> <td>&amp;le;</td> <td>&amp;#8804;</td> <td>&nbsp;</td> <td>Inférieur ou égal</td> </tr> <tr> <th>≥</th> <td>&amp;ge;</td> <td>&amp;#8805;</td> <td>&nbsp;</td> <td>Supérieur ou égal</td> </tr> <tr> <th>=</th> <td>=</td> <td>&amp;#61;</td> <td>Alt+061</td> <td>Egal</td> </tr> <tr> <th>≈</th> <td>&amp;asymp;</td> <td>&amp;#8776;</td> <td>&nbsp;</td> <td>Presque égal</td> </tr> <tr> <th>≠</th> <td>&amp;ne;</td> <td>&amp;#8800;</td> <td>&nbsp;</td> <td>Différent</td> </tr> <tr> <th>≡</th> <td>&amp;equiv;</td> <td>&amp;#8801;</td> <td>&nbsp;</td> <td>Equivalent</td> </tr> <tr> <th>±</th> <td>&amp;plusmn;</td> <td>&amp;#177;</td> <td>Alt+0177</td> <td>Plus-ou-moins</td> </tr> <tr> <th>−</th> <td>&amp;minus;</td> <td>&amp;#8722;</td> <td>&nbsp;</td> <td>Moins</td> </tr> <tr> <th>+</th> <td>+</td> <td>&amp;#43;</td> <td>Alt+043</td> <td>Plus</td> </tr> <tr> <th>×</th> <td>&amp;times;</td> <td>&amp;#215;</td> <td>Alt+0215</td> <td>Multiplication</td> </tr> <tr> <th>÷</th> <td>&amp;divide;</td> <td>&amp;#247;</td> <td>Alt+0247</td> <td>Division</td> </tr> <tr> <th>⁄</th> <td>&amp;frasl;</td> <td>&amp;#8260;</td> <td>&nbsp;</td> <td>Fraction</td> </tr> <tr> <th>%</th> <td>%</td> <td>&amp;#37;</td> <td>Alt+037</td> <td>Pour cent</td> </tr> <tr> <th>‰</th> <td>&amp;permil;</td> <td>&amp;#8240;</td> <td>&nbsp;</td> <td>Pour mille</td> </tr> <tr> <th>¼</th> <td>&amp;frac14;</td> <td>&amp;#188;</td> <td>Alt+0188</td> <td>Un quart</td> </tr> <tr> <th>½</th> <td>&amp;frac12;</td> <td>&amp;#188;</td> <td>Alt+0189</td> <td>Un demi</td> </tr> <tr> <th>¾</th> <td>&amp;frac34;</td> <td>&amp;#188;</td> <td>Alt+0190</td> <td>Trois quarts</td> </tr> <tr> <th>¹</th> <td>&amp;sup1;</td> <td>&amp;#185;</td> <td>Alt+0185</td> <td>Exposant 1</td> </tr> <tr> <th>²</th> <td>&amp;sup2;</td> <td>&amp;#178;</td> <td>Alt+0178</td> <td>Exposant 2</td> </tr> <tr> <th>³</th> <td>&amp;sup3;</td> <td>&amp;#179;</td> <td>Alt+0179</td> <td>Exposant 3</td> </tr> <tr> <th>º</th> <td>&amp;ordm;</td> <td>&amp;#186;</td> <td>Alt+0186</td> <td>Indicateur ordinal masculin</td> </tr> <tr> <th>ª</th> <td>&amp;ordf;</td> <td>&amp;#170;</td> <td>Alt+0170</td> <td>Indicateur ordinal féminin</td> </tr> <tr> <th>ƒ</th> <td>&amp;fnof;</td> <td>&amp;#402;</td> <td>&nbsp;</td> <td>Fonction <small>(idem florin)</small></td> </tr> <tr> <th>′</th> <td>&amp;prime;</td> <td>&amp;#8242;</td> <td>&nbsp;</td> <td>Prime, minutes, dérivée</td> </tr> <tr> <th>″</th> <td>&amp;Prime;</td> <td>&amp;#8243;</td> <td>&nbsp;</td> <td>Double prime, secondes, dérivée seconde</td> </tr> <tr> <th>∂</th> <td>&amp;part;</td> <td>&amp;#8706;</td> <td>&nbsp;</td> <td>Dérivée partielle</td> </tr> <tr> <th>∏</th> <td>&amp;prod;</td> <td>&amp;#8719;</td> <td>&nbsp;</td> <td>Produit n-aire</td> </tr> <tr> <th>∑</th> <td>&amp;sum;</td> <td>&amp;#8721;</td> <td>&nbsp;</td> <td>Somme n-aire</td> </tr> <tr> <th>√</th> <td>&amp;radic;</td> <td>&amp;#8730;</td> <td>&nbsp;</td> <td>Racine carrée</td> </tr> <tr> <th>∞</th> <td>&amp;infin;</td> <td>&amp;#8734;</td> <td>&nbsp;</td> <td>Infini</td> </tr> <tr> <th>¬</th> <td>&amp;not;</td> <td>&amp;#172;</td> <td>Alt+0172</td> <td>Crochet de négation</td> </tr> <tr> <th>∩</th> <td>&amp;cap;</td> <td>&amp;#8745;</td> <td>&nbsp;</td> <td>Intersection</td> </tr> <tr> <th>∫</th> <td>&amp;int;</td> <td>&amp;#8747;</td> <td>&nbsp;</td> <td>Intégrale</td> </tr> </tbody></table></div>
+<div class="divClearBoth"></div></div><!--finArticle_705--><!--debutArticle_1535--><div class="divArticle divArticleGabarit_30" id="divArticle_1535">	
+<div class="divArticleContenu"><div>Si vous rencontrez des problèmes d'affichage avec les caractères spéciaux sur votre <a href="http://dico.studiovitamine.com/definition,141,fr/blog,375,fr.html?id=284" title="Définition Blog">blog</a>, site...il est possible que l'encodage de votre page ne soit pas le bon.</div></div>
+<div class="divClearBoth"></div></div><!--finArticle_1535--></div><!--finZoneEdition_12-->			<div style="margin-top:20px;margin-bottom:10px;text-align:center">
+					<link href="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/css" rel="stylesheet" type="text/css">
+					
+						<div style="display:inline-block;vertical-align: bottom;margin-right: 15px;"><img src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/yo.png"></div><div style="text-align:left;display:inline-block"><h2 style="font-family: &#39;Istok Web&#39;, &#39;sans-serif&#39;;font-size: 30px;color: #e5295f;font-weight: normal;line-height: 30px;margin-bottom: 10px;">Création de sites Internet<br>&amp; référencement naturel</h2><div style="color: #515151;font-size: 15px;margin-bottom: 15px;font-weight:bold">Découvrez les références de l’agence web <br>STUDIO VITAMINE. Des spécialistes et passionnés <br>à votre service ! Devis gratuit.</div><div style="background: #e5295f url(/image/idSite_4/click.png) 225px center no-repeat;width: 230px;padding:8px 15px;border-radius: 5px;"><a style="font-size:17px;font-weight:bold;color:#fff;" href="http://www.studiovitamine.com/" title="agence web">www.studiovitamine.com</a></div></div>
+					</div>
+		</div>
+	</div>	
+</div>
+		<div class="divPlanDuSite" id="divPlanDuSite_0_XXXidUnique15928967232300034XXX_">
+	<div id="divFooter">
+												
+						
+														
+						
+														
+						
+						
+		<div id="divFooterLien"><a href="http://lorem-ipsum.studiovitamine.com/plan-du-site,289,fr.html" title="plan du site du générateur de faux texte" class="">Plan du site</a> | <a href="http://lorem-ipsum.studiovitamine.com/mentions-legales,285,fr.html" title="mentions légales de Lorem Ipsum Générator" class="">Mentions légales</a> | <a href="http://lorem-ipsum.studiovitamine.com/contact,286,fr.html" title="contacts" class="">Contact</a></div>
+		<div id="divFooterThemeAssocier">
+		<strong>Thèmes associés</strong> : Lorem ipsum et caractère ascii mais caractères spéciaux et faux texte pour caracteres speciaux ? Faux texte latin. Lorem ipsum generator, caractère spéciaux ni caractères spéciaux clavier. Caractère spéciaux html et caractere spéciaux. Caracteres spéciaux, caractère speciaux.		<strong>Liens associés</strong> : 
+		<a href="http://www.google.fr/search?hl=fr&amp;q=caracteres+speciaux">caracteres speciaux</a> 
+		et <a href="http://images.google.fr/images?hl=fr&amp;q=caracteres+speciaux">caracteres speciaux</a>
+			</div>
+				<div id="divByStudioVitamine" onmouseover="javascript:$(&#39;#imgByStudioVitamineYo&#39;).Bounce(30);">
+			<div id="divByStudioVitamineImgYo"><a href="http://www.studiovitamine.com/" title="l&#39;agence web"><img src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/yo.gif" id="imgByStudioVitamineYo" alt="mascotte de l&#39;agence web STUDIO VITAMINE"></a></div>
+			<a href="http://www.studiovitamine.com/" title="l&#39;agence web"><img src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/agence-web.gif" alt="l&#39;agence web STUDIO VITAMINE"></a>
+			<div><a href="http://www.studiovitamine.com/" title="agence de creation de sites internet" id="aByStudioVitamine">l'agence web</a></div>
+			<script>$("#aByStudioVitamine").html("l'agence web");</script>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	$("#divFooterThemeAssocier").html($("#divBandeauThemeAssocier").html());
+	$("#divBandeauThemeAssocier").html("");
+</script>
+        <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Caractères spéciaux _ entités html, code ascii et raccourcis clavier. - LOREM IPSUM Generator_files/ga.js.téléchargement" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5489800-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+      
+
+ <div id="dragHelper" style="position: absolute; display: none; cursor: move; list-style: none; overflow: hidden; user-select: none;"></div></body></html>

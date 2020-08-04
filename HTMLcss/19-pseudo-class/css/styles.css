@@ -1,0 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
+input:first-of-type:active {
+    background-color: orangered;
+}

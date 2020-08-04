@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background: red;
+}
+
+
+/* @media (min-width: 48em) {
+    body {
+        background: greenyellow;
+    }
+} */
+
+p {
+    font-size: 1em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    display: none;
+}
+
+@media (min-width: 34em) and (max-width: 48em) {
+    body {
+        background: greenyellow;
+    }
+    p{
+        font-size: 3em;
+        display: block;
+    }
+}

@@ -1,0 +1,14 @@
+- La couleur de fond du bouton «Déposer une annonce»
+- La couleur du texte de la liste de régions
+- Le nom de la balise qui affiche la carte
+- L’identifiant (id=«?») du bandeau de cookies en bas de page
+- Les classes (class=«?») de la balise body
+
+#ff6e14
+
+ #1a1a1a;
+<svg>
+
+didomi-notice
+
+gServer

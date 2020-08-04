@@ -1,0 +1,1 @@
+afficher une couleur de fond aléatoire à chaque rechargement de page

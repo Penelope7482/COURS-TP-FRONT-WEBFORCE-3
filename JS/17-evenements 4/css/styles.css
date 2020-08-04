@@ -1,0 +1,42 @@
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+#main {
+	height: 100vh;
+	background: black;
+}
+
+.figure {
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* correction possible en css pur:
+main {
+	background: purple;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  #popup {
+	position: fixed;
+	width: 580px;
+	height: 300px;
+	/* left: calc(50% - 290px);
+	top: calc(50% - 150px); */
+
+/* border-radius: 10px;
+	border: 15px solid black;
+	background: url("../img/leave.gif") center / 100% no-repeat;
+	display: none;
+  } */

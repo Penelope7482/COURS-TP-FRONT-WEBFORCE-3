@@ -1,0 +1,73 @@
+.navbar 
+{
+    background-color: black;
+    color: white;
+    height: 70px;
+    font-family: arial, sans-serif;
+}
+
+.logo 
+{
+    padding-left: 50px;
+   padding-top: 30px;
+}
+
+.section
+{
+    font-family: 'Times New Roman', Times, serif ;
+}
+
+
+.articles
+{
+    display: flex;
+    justify-content: space-around;
+    margin:50px;
+}
+
+.article
+{
+    margin:20px;
+}
+
+.titres
+{
+    margin-top:20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    height:100px;
+    color: white;
+
+    
+    
+}
+
+.titres h4
+{
+    margin-top: 10px;
+}
+
+.secondTitre 
+{
+    background-color: red;
+    text-align: center;
+    width: 700px;
+}
+
+.troisiemeTitre 
+{
+    background-color: blue;
+    text-align: center;
+    width: 700px;
+}
+
+.footer
+{
+
+  background-color: black;
+  height: 70px;
+text-align: center;
+color: white;
+
+}

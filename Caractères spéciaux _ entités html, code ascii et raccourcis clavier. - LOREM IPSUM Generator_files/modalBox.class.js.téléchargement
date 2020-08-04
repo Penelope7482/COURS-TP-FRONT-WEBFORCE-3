@@ -1,0 +1,434 @@
+/*
+CE FICHIER CONSTITUE UNE PARTIE DU LOGICIEL Vitamine CMS.
+* Le Logiciel Initial "Vitamine CMS" (non modifié par une contribution) est distribuée
+	par la Société STUDIO VITAMINE S.A.R.L dont le siège est Hôtel TIC - 1, rue Alexander Fleming – 17000 La Rochelle - France.
+	(Site Internet : www.studiovitamine.com - Téléphone 05 46 07 23 16)
+* Tous les éléments constitutifs du logiciel Vitamine CMS
+	sont la création de Fabien Guy BRANCHUT, l'Auteur de logiciel, né en France le 11 mars 1974 à Angoulême (16).
+	(Site Internet : www.fabien-branchut.fr - Téléphone : 06 60 80 26 02)
+*/
+if(global_zIndexLast==null){
+	var global_zIndexLast = 0;
+}
+
+function ModalBox(idModalBox, leZIndex, o_option){ 
+	
+	this.idModalBox = idModalBox;
+	
+	// gestion des zIndex
+	var zIndexDivModalBoxGlobal = leZIndex+1;
+	if(zIndexDivModalBoxGlobal > global_zIndexLast){global_zIndexLast = zIndexDivModalBoxGlobal;}
+		
+	// on cherche le navigateur
+	var navigateur = false; 
+	if($.browser.msie){$(function(){navigateur="msie";});}	
+
+	// les options
+	if(o_option != ""){
+		this.o_config = new Object(o_option);
+		if(this.o_config.backgroundOpacity==null)	{this.o_config.backgroundOpacity=0.1;}
+		if(this.o_config.backgroundForced==null)	{this.o_config.backgroundForced=false;}
+		if(this.o_config.nameClose==null)			{this.o_config.nameClose="X";}
+		if(this.o_config.dragDrop==null)			{this.o_config.dragDrop=true;}
+		if(this.o_config.buttonClose==null)			{this.o_config.buttonClose=true;}
+		if(this.o_config.titleBar==null)			{this.o_config.titleBar=true;}
+		if(this.o_config.backgroundContainer==null)	{this.o_config.backgroundContainer=true;}
+		if(this.o_config.scrolling==null)			{this.o_config.scrolling=true;}
+		if(this.o_config.focusable==null)			{this.o_config.focusable=false;}
+		if(this.o_config.onFocusCSS==null)			{this.o_config.onFocusCSS="";}
+		if(this.o_config.onBlurCSS==null)			{this.o_config.onBlurCSS="";}
+		if(this.o_config.titleDefault==null)		{this.o_config.titleDefault="";}
+	}
+	var backgroundContainer = this.o_config.backgroundContainer;
+	var o_onFocusCSS 		= this.o_config.onFocusCSS;
+	var o_onBlurCSS 		= this.o_config.onBlurCSS;
+	
+	// style de la modal box elle-meme
+	var styleDivModalBox = "position:relative;display:none;overflow:hidden;";
+	if(this.o_config.backgroundContainer == false){
+		styleDivModalBox += "z-index:"+leZIndex+";";
+	}
+	
+	// style du "titre"
+	var styleDivModalBox_titre = "";
+	if(this.o_config.dragDrop==true && navigateur!="msie"){
+		styleDivModalBox_titre+="cursor:move;";	
+	}
+	if(this.o_config.titleBar==false){
+		styleDivModalBox_titre+="display:none;";	
+	}
+	
+	// style du bouton "fermer"
+	var styleDivModalBox_fermer = "position:absolute;";
+	if(this.o_config.buttonClose==true){
+		styleDivModalBox_fermer+="display:block;";	
+	}else if(this.o_config.buttonClose==false){
+		styleDivModalBox_fermer+="display:none;";	
+	}
+	
+	// méthode à appeler en cas de changement de page
+	// à l'intérieur de l'iframe
+	var onloadIframe = ""; 
+	if(this.o_config.titleAuto!=null){
+		onloadIframe = "javascript:"+this.o_config.titleAuto+".adapterTitle("+this.idModalBox+",'"+this.o_config.titleDefault+"')";
+	}
+		
+	var modalBoxHtml = "";
+	if(this.o_config.backgroundContainer == true){
+	modalBoxHtml += '<div id="divModalBoxGlobal_'+this.idModalBox+'" style="position:fixed;width:100%;display:none;z-index:'+(leZIndex+1)+';">';
+	}
+	modalBoxHtml += '	<div id="divModalBox_'+this.idModalBox+'" style="'+styleDivModalBox+'">';
+	modalBoxHtml += '		<div id="divModalBox_'+this.idModalBox+'_close" style="'+styleDivModalBox_fermer+'">'+this.o_config.nameClose+'</div>';
+	modalBoxHtml += '		<div id="divModalBox_'+this.idModalBox+'_titre" style="'+styleDivModalBox_titre+'"></div>';
+	modalBoxHtml += '		<div id="divModalBox_'+this.idModalBox+'_contenu" style="overflow:hidden;">';
+	modalBoxHtml += '			<iframe src="" id="iframeModalBox_'+this.idModalBox+'" name="iframeModalBox_'+this.idModalBox+'" onload="'+onloadIframe+'" frameborder="0" style="width:100%;"></iframe>';
+	modalBoxHtml += '		</div>';
+	modalBoxHtml += '		<div id="divModalBox_'+this.idModalBox+'_blur" class="divModalBox_divOnBlurCacher"></div>';	
+	modalBoxHtml += '	</div>';	
+	if(this.o_config.backgroundContainer == true){
+	modalBoxHtml += '</div>';
+	modalBoxHtml += '<div id="divModalBoxFond_'+this.idModalBox+'" style="position:fixed;width:100%;display:none;z-index:'+leZIndex+';">';
+	modalBoxHtml += '</div>';
+	}
+
+	// on ajoute la modalBox au DOM
+	$(document).ready(
+		function(){ 
+			$("body").prepend(modalBoxHtml);
+		}
+	);
+		
+	// ----------------------------------------------------
+	// fermeture de la modal box (kan clic sur bouton "fermer")
+	// ----------------------------------------------------
+	if(this.o_config.backgroundContainer == true){
+		$("#divModalBox_"+this.idModalBox+"_close").click( 
+			function(){    
+				// on vide la page de l'iframe
+				if(document.getElementById("iframeModalBox_"+idModalBox)){
+					document.getElementById("iframeModalBox_"+idModalBox).src = "";
+				} 		
+				// on cache la modalbox
+				document.getElementById("divModalBoxGlobal_"+idModalBox).style.display = "none";
+				document.getElementById("divModalBoxFond_"+idModalBox).style.display = "none";
+			} 
+		);			
+	}else{
+		$("#divModalBox_"+this.idModalBox+"_close").click( 
+			function(){    
+				document.getElementById("divModalBox_"+idModalBox).style.display = "none";
+			} 
+		);		
+	}	
+	
+	// ----------------------------------------------------
+	// fermeture de la modal box (kan clic en dehors de la modal box)
+	// ----------------------------------------------------
+	var cliquerSurModalBox = "non";
+	$("#divModalBoxGlobal_"+this.idModalBox).bind("click",function(){
+			if(cliquerSurModalBox=="oui"){
+				cliquerSurModalBox = "non";
+			}else{
+				$("#divModalBox_"+idModalBox+"_close").click();
+			}
+	});
+	$("#divModalBox_"+this.idModalBox).bind("click",function(){
+			cliquerSurModalBox = "oui";
+	});
+	
+	// ----------------------------------------------------
+	// modal box suit le scroll (uniquement si pas de fond => backgroundContainer=false)
+	// ----------------------------------------------------
+	if(this.o_config.backgroundContainer == false){
+		if(this.o_config.scrolling == true){
+			$('#divModalBox_'+idModalBox).css("position","fixed");
+		}else{
+			$('#divModalBox_'+idModalBox).css("position","absolute");
+		}	
+	}
+	
+	// ----------------------------------------------------
+	// dragdrop de la modal box
+	// ----------------------------------------------------
+	if(this.o_config.dragDrop == true && navigateur!="msie"){
+		if(this.o_config.backgroundContainer == false){
+			if(this.o_config.scrolling == true){
+				$('#divModalBox_'+idModalBox).Draggable(
+					{
+						zIndex: 		1000000000,
+						ghosting:		false,
+						opacity: 		0.5,
+						handle : 		'#divModalBox_'+idModalBox+'_titre',
+						onStop : 		function(){
+											$('#divModalBox_'+idModalBox).css("position","fixed");
+										}
+					}
+				);			
+			}else{
+				$('#divModalBox_'+idModalBox).Draggable(
+					{
+						zIndex: 		1000000000,
+						ghosting:		false,
+						opacity: 		0.5,
+						handle : 		'#divModalBox_'+idModalBox+'_titre'
+					}
+				);			
+			}
+		}else{
+			$('#divModalBox_'+idModalBox).Draggable(
+				{
+					zIndex: 		1000000000,
+					ghosting:		false,
+					opacity: 		0.5,
+					containment : 	'parent',
+					handle : 		'#divModalBox_'+idModalBox+'_titre'
+				}
+			);			
+		}
+	}
+	
+	// ----------------------------------------------------
+	// donner le focus à la fenetre si on clic sur la barre du titre
+	// ----------------------------------------------------
+	if(this.o_config.focusable==true){
+		$("#divModalBox_"+this.idModalBox+"_titre").mousedown( 
+			function(){  
+				var o_modalBox = new ModalBox(0,0);
+				o_modalBox.donnerLeFocus(idModalBox, backgroundContainer, o_onFocusCSS);
+			} 
+		);
+	}
+	
+	// ----------------------------------------------------
+	// perd le focus à la fenetre si on clic sur le bouton caché
+	// ----------------------------------------------------
+	if(this.o_config.focusable==true){
+		$("#divModalBox_"+this.idModalBox+"_blur").click( 
+			function(){  
+				var o_modalBox = new ModalBox(0,0);
+				o_modalBox.perdreLeFocus(idModalBox, o_onBlurCSS);
+			} 
+		);
+	}
+		
+	// ----------------------------------------------------
+	// adaptation du titre de la modal box 
+	// en fonction du <title> de la page de l'iframe
+	// ----------------------------------------------------	
+	this.adapterTitle = function(idModalBox, titleDefault){
+		if(document.getElementById("iframeModalBox_"+idModalBox)){
+			if(document.getElementById("iframeModalBox_"+idModalBox).src!=""){
+				var baliseTitle = titleDefault;
+				if(window.frames["iframeModalBox_"+idModalBox]){
+					baliseTitle = window.frames["iframeModalBox_"+idModalBox].document.title;
+				}
+				$("#divModalBox_"+this.idModalBox+"_titre").html(baliseTitle);	
+			} 
+		}
+	}
+	
+	// ----------------------------------------------------
+	// ouverture de la modal box
+	// ----------------------------------------------------
+	var o_openOption = new Object();
+	this.open = function (largeur, hauteur, titre, uneUrl, o_option){	
+		// les options
+		if(o_option != null){
+			o_openOption = o_option;
+		}
+		if(o_openOption.dataType==null){o_openOption.dataType="url";}
+		
+		if(o_openOption.dataType=="url"){
+			// on appel la page via l'iframe 
+			document.getElementById("iframeModalBox_"+this.idModalBox).src = uneUrl; 
+		}else if(o_openOption.dataType=="html"){
+			// c'est une boite d'alerte
+			$("#iframeModalBox_"+this.idModalBox).remove();
+			uneUrl = uneUrl.replace(/###apostrophe###/g,"'");
+			uneUrl = uneUrl.replace(/###doublequote###/g,'"');
+			document.getElementById("divModalBox_"+this.idModalBox+"_contenu").innerHTML = uneUrl;
+			$("#divModalBox_"+this.idModalBox).css("overflow","visible");
+		} 
+		         
+		// on redimensionne le conteneur de la modalbox
+		this.redimensionnerConteneurModalBox();	
+		
+		// on adapte la hauteur de la modalbox aux dimensions souhaitées
+		if(o_openOption.dataType=="url"){
+			document.getElementById("divModalBox_"+this.idModalBox).style.width  = largeur+"px";	
+			document.getElementById("divModalBox_"+this.idModalBox).style.height = hauteur+"px"; 
+		}else if(o_openOption.dataType=="html"){
+			document.getElementById("divModalBox_"+this.idModalBox).style.width  = largeur+"px";	
+			document.getElementById("divModalBox_"+this.idModalBox).style.minHeight = hauteur+"px"; 
+		}	  
+		
+		// on affiche le titre de la modalbox
+		titre = titre.replace(/###apostrophe###/g,"'");
+		titre = titre.replace(/###doublequote###/g,'"');
+		document.getElementById("divModalBox_"+this.idModalBox+"_titre").innerHTML  = titre;	
+		
+		// on affiche la modalBox 
+		if(this.o_config.backgroundContainer == true){
+		document.getElementById("divModalBoxGlobal_"+this.idModalBox).style.display = "block";
+		}
+		if(this.o_config.backgroundContainer == true){
+		document.getElementById("divModalBoxFond_"+this.idModalBox).style.display = "block";
+		}
+		
+		// on adapte la hauteur de l'iframe de la modalbox à la hauteur souhaitée (moins la hauteur du titre de la modalbox)
+		hauteurTitre = document.getElementById("divModalBox_"+this.idModalBox+"_titre").offsetHeight;
+		if(o_openOption.dataType=="url"){
+			if((hauteur-hauteurTitre) >= 0){
+				document.getElementById("iframeModalBox_"+this.idModalBox).style.height = (hauteur-hauteurTitre)+"px";
+			}
+		}
+		
+		// affichage du fond de la modal box
+		if(this.o_config.backgroundContainer == true){		
+			$('#divModalBoxFond_'+this.idModalBox).animate(				
+				{
+					opacity:this.o_config.backgroundOpacity,
+					className: 'divModalBox_'+this.idModalBox+'_fond'
+				},
+				1
+			);
+		}
+		
+		// gestion du focus de la modal box		
+		if(o_openOption.focus == true){
+			this.donnerLeFocus(this.idModalBox, this.o_config.backgroundContainer, o_onFocusCSS);
+		}		
+		
+		// effet à l'ouverture
+		if(o_openOption.effect != null){
+				if(this.o_config.backgroundContainer == true){
+					document.getElementById("divModalBoxGlobal_"+idModalBox).style.visibility = "hidden";
+				}
+				document.getElementById("divModalBox_"+idModalBox).style.visibility = "hidden";	
+				document.getElementById("divModalBoxFond_"+idModalBox).style.visibility = "hidden";				
+				if(this.o_config.backgroundContainer == true){
+					document.getElementById("divModalBoxGlobal_"+idModalBox).style.display = "block";
+				}
+				document.getElementById("divModalBox_"+idModalBox).style.display = "block";
+				$(o_openOption.dom).TransferTo(
+													{
+														 to:'divModalBox_'+this.idModalBox
+														,className:'divModalBox_'+this.idModalBox+'_transferer'
+														,duration:o_openOption.effectDuration
+														,complete:function(){														
+															if(document.getElementById("divModalBoxGlobal_"+idModalBox)){
+																document.getElementById("divModalBoxGlobal_"+idModalBox).style.visibility = "visible";
+															}
+															document.getElementById("divModalBox_"+idModalBox).style.visibility = "visible";
+															document.getElementById("divModalBoxFond_"+idModalBox).style.visibility = "visible";
+														}
+													}
+											   );
+			
+		}else{
+			// affichage de la modal box
+			if(this.o_config.effectOpen == null){
+				if(this.o_config.backgroundContainer == true){
+				document.getElementById("divModalBoxGlobal_"+idModalBox).style.display = "block";
+				}
+				document.getElementById("divModalBox_"+idModalBox).style.display = "block";
+			}else{
+				eval("$('#divModalBox_'+this.idModalBox)."+this.o_config.effectOpen+";");
+			}
+		}	
+
+		//CHargement de url le iframe (hack cause bug Firefox 10)
+		if(o_openOption.dataType=="url") setTimeout(function(){$("#iframeModalBox_1").attr('src', uneUrl);}, 100);
+	}  
+	// ----------------------------------------------------
+	// la modal box prends le focus
+	// ----------------------------------------------------
+	this.donnerLeFocus = function(idModalBox, backgroundContainer, o_onFocusCSS){
+		if(backgroundContainer == true){
+			document.getElementById("divModalBoxFond_"+idModalBox).style.zIndex = global_zIndexLast+1;
+			document.getElementById("divModalBoxGlobal_"+idModalBox).style.zIndex = global_zIndexLast+2;	
+			global_zIndexLast += 2;	
+		}else{
+			document.getElementById("divModalBox_"+idModalBox).style.zIndex = global_zIndexLast+1;
+			global_zIndexLast += 1;	
+		}
+		// on applique les style CSS d'un onBlur
+		var t_divModalBoxOnBlurCacher = $(".divModalBox_divOnBlurCacher");
+		for(var i=0; i<(t_divModalBoxOnBlurCacher.length)-1; i++){
+			$(t_divModalBoxOnBlurCacher[i]).click();
+		}		
+		// on applique les style CSS d'un onFocus
+		for (var nom in o_onFocusCSS){
+			$("#divModalBox_"+idModalBox).css(nom,o_onFocusCSS[nom]);
+		}
+	}  
+	// ----------------------------------------------------
+	// la modal box perds le focus
+	// ----------------------------------------------------
+	this.perdreLeFocus = function(idModalBox, o_onBlurCSS){
+		// on applique les style CSS d'un onFocus	
+		for (var nom in o_onBlurCSS){
+			$("#divModalBox_"+idModalBox).css(nom,o_onBlurCSS[nom]);
+		}
+	}  
+	// ----------------------------------------------------
+	// on redimensionne les conteneurs de la modal box 
+	// (le <div> "global" + le <div> "fond")
+	// ----------------------------------------------------
+	this.redimensionnerConteneurModalBox = function(){  
+		// on cherche la hauteur du navigateur
+		var t_dimension = this.trouverDimensionEspaceLibreNavigateur(); 
+		var hauteurNavigateur = t_dimension[1];   
+		
+		// on adapte la hauteur du conteneur de la modalbox à celle de la fenetre du navigateur
+		if(this.o_config.backgroundContainer == true){
+		document.getElementById("divModalBoxGlobal_"+this.idModalBox).style.height = hauteurNavigateur+"px";  
+		}
+		if(this.o_config.backgroundContainer == true){ 
+			var navigateur = "";
+			if(global_lieu=="fo"){
+				navigateur = global_site_navigateur;
+			}else if(global_lieu=="admin"){
+				navigateur = global_admin_navigateur;
+			}
+			if(navigateur=="msie" || o_openOption.backgroundForced == true){
+				document.getElementById("divModalBoxFond_"+this.idModalBox).style.height = hauteurNavigateur+"px";  
+			}else{
+				// sur FF, si on applique une hauteur à divModalBoxFond, les éléments de formulaire présent dans l'iframe de la modal box n'affiche plus le focus !!!! Ce qui est très pénible pour rédiger...
+			}
+		}
+	}    
+	// ----------------------------------------------------
+	// retourne les dimensions de la fenetre du navigateur
+	// ----------------------------------------------------  
+	this.trouverDimensionEspaceLibreNavigateur = function(){
+		var largeur = 0, hauteur = 0;
+		if( typeof(window.innerWidth) == 'number') 
+		{
+		  largeur = window.innerWidth;
+		  hauteur = window.innerHeight;
+		} 
+		else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight )) 
+		{
+		  largeur = document.documentElement.clientWidth;
+		  hauteur = document.documentElement.clientHeight;
+		 } 
+		else if(document.body && (document.body.clientWidth || document.body.clientHeight)) 
+		{
+		  largeur = document.body.clientWidth;
+		  hauteur = document.body.clientHeight;
+		}
+		else 
+		{
+		  largeur = -1;
+		  hauteur = -1;
+		}
+		
+		//alert("largeur disponible sur le navigateur => "+largeur);
+		//alert("hauteur disponible sur le navigateur => "+hauteur); 
+		var t_dimension = new Array();
+		t_dimension[0] = largeur;
+		t_dimension[1] = hauteur;
+		return t_dimension; 
+	}	
+}

@@ -1,0 +1,40 @@
+.facebook {
+
+    background: url(../img/sprite.png) top left / 300% no-repeat;
+    width: 61px;
+    height: 54px;
+}
+
+.facebook:hover {
+
+    background: url(../img/sprite.png) bottom left / 300% no-repeat;
+    width: 61px;
+    height: 54px;
+}
+.instagram {
+
+    background: url(../img/sprite.png) top center / 300% no-repeat;
+    width: 61px;
+    height: 54px;
+}
+
+.instagram:hover {
+
+    background: url(../img/sprite.png) bottom center / 300% no-repeat;
+    width: 61px;
+    height: 54px;
+}
+
+.linkdin {
+
+    background: url(../img/sprite.png) top right / 300% no-repeat;
+    width: 61px;
+    height: 54px;
+}
+
+.linkdin:hover {
+
+    background: url(../img/sprite.png) bottom right / 300% no-repeat;
+    width: 61px;
+    height: 54px;
+}

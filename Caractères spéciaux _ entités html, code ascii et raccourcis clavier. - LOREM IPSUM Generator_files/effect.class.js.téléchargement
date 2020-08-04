@@ -1,0 +1,70 @@
+/*
+CE FICHIER CONSTITUE UNE PARTIE DU LOGICIEL Vitamine CMS.
+* Le Logiciel Initial "Vitamine CMS" (non modifié par une contribution) est distribuée
+	par la Société STUDIO VITAMINE S.A.R.L dont le siège est Hôtel TIC - 1, rue Alexander Fleming – 17000 La Rochelle - France.
+	(Site Internet : www.studiovitamine.com - Téléphone 05 46 07 23 16)
+* Tous les éléments constitutifs du logiciel Vitamine CMS
+	sont la création de Fabien Guy BRANCHUT, l'Auteur de logiciel, né en France le 11 mars 1974 à Angoulême (16).
+	(Site Internet : www.fabien-branchut.fr - Téléphone : 06 60 80 26 02)
+*/
+function Effect(){	
+	// ------------------------------------------
+	// survol d'un élément
+	// ------------------------------------------
+	this.survolerElement = function (domElement, action, classNameOver, classNameOut){ 
+		if(action=="over"){                      
+			$(domElement).removeClass(classNameOut);
+			$(domElement).addClass(classNameOver);
+		}	
+		if(action=="out"){
+			$(domElement).removeClass(classNameOver);
+			$(domElement).addClass(classNameOut);
+		}		
+	} 
+	// ------------------------------------------
+	// changement d'état d'un élément
+	// ------------------------------------------
+	this.changerEtatElement = function (domElement, classNameNew){ 
+		$(domElement).removeClass();	
+		$(domElement).addClass(classNameNew);	// pas de 'animate' à cause de bug sur les background sur IE et FF
+	}
+	// ------------------------------------------
+	// suppression d'un élément
+	// ------------------------------------------
+	this.cacherElement = function (domElement, fonctionCallBack){ 
+		if(!fonctionCallBack){
+			fonctionCallBack=function(){$(domElement).remove();}
+		}
+		if($.browser.msie){
+			$(domElement).Pulsate(150,5,fonctionCallBack);	
+		}else{
+			$(domElement).animate(
+				{style:'height:0px;'},
+				1000,
+				fonctionCallBack
+			);
+		}
+	} 
+	// ------------------------------------------
+	// affichage d'un élément
+	// ------------------------------------------
+	this.afficherElement = function (domElement, fonctionCallBack){ 
+		if(!fonctionCallBack){
+			fonctionCallBack=function(){}
+		}
+		$(domElement).BlindDown(500, fonctionCallBack);
+	} 
+	// ------------------------------------------
+	// selection d'un élément
+	// ------------------------------------------
+	this.selectionnerElement = function (domElement){ 
+		$(domElement).ScrollTo(800);      
+		this.clignoterElement(domElement);
+	}
+	// ------------------------------------------
+	// clignotement d'un élément
+	// ------------------------------------------
+	this.clignoterElement = function (domElement){ 
+		$(domElement).Pulsate(300,5);   
+	}
+}

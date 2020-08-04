@@ -1,0 +1,14 @@
+.carousel-control-next,
+.carousel-control-prev{
+
+    opacity : 1 ;
+}
+
+.carousel-control-next-icon{
+  background: url(../img/next.jpg) center /100%  no-repeat;
+ 
+}
+.carousel-control-prev-icon{
+  background: url(../img/prev.jpg) center /100% auto no-repeat;
+  
+}

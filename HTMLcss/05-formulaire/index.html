@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Formulaires</title>
+	</head>
+	<body>
+		<form action="formulaire.php" method="post">
+			<fieldset>
+				<legend>Inscription à une formation de cuisine:</legend>
+
+				<label for="lasttname">Nom utilisateur:</label>
+				<input type="text" id="lastname">
+				<br>
+
+				<label for="password">Mot de passe:</label>
+				<input type="password" id="password">
+				<br>
+
+				<label for="email">Email:</label>
+				<input type="email" id="email" placeholder="(obligatoire)" required>
+				<br>
+
+				<div>
+                
+					<label for="sexe">Sexe:</label>
+					<br>
+
+					<input type="radio" name="sexe" id="sexe" value="Femme">
+					<label for="sexe">Femme</label>
+
+					<br>
+
+					<input type="radio" name="sexe" id="sexe" value="Homme">
+					<label for="sexe">Homme</label>
+
+					<br>
+
+					<input type="radio" name="sexe" id="sexe" value="Autre">
+					<label for="sexe">Autre</label>
+					<br>
+
+				</div>
+
+				<label for="description">Description:</label><br>
+				<textarea id="description" rows="4" cols="50"></textarea><br>
+
+				<input type="checkbox" name="" id="" value="Accepter">Accepter
+				<a href="conditions.html">les conditions</a>
+
+				<br>
+
+				<button type="submit">M'inscrire</button>
+
+			</fieldset>
+		</form>
+	</body>
+</html>

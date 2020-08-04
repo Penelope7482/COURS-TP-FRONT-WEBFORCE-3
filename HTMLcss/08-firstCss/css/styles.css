@@ -1,0 +1,14 @@
+body
+{
+    color: grey;
+}
+
+p span
+{
+    font-style: italic;
+}
+
+.rose
+{
+    color: rgb(255, 192, 203);
+}

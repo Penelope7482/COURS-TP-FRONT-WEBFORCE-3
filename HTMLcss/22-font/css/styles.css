@@ -1,0 +1,26 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+@font-face {
+    font-family: 'oswald_regularregular';
+    src: url('../font/oswald-regular-webfont.woff2') format('woff2'),
+         url('../font/oswald-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'oswald_regularregular', sans-serif;
+}
+
+h1 {
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.fa-rocket {
+    color: red;
+}

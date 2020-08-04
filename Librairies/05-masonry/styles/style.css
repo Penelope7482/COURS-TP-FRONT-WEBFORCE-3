@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+.grid-item {
+    margin-bottom: 10px;
+    padding: 0 5px; 
+}
+
+.grid-sizer,
+.grid-item {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .grid-sizer,
+    .grid-item {
+        width: calc(100% / 3);
+    }
+
+}
+

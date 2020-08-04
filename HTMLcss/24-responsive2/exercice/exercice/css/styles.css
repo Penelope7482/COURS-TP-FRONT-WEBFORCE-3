@@ -1,0 +1,303 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin : 0; 
+}
+
+header, footer {
+    background: salmon;
+}
+
+header {
+    width: 100%;
+}
+
+main {
+    background: url(../img/petit.jpg) center / auto no-repeat;
+    width: 100%;
+    min-height: 300px;
+}
+
+section {
+    background: red;
+    width: 100%;
+}
+
+section :nth-child(3), section :nth-child(4) {
+    display: none;
+}
+
+footer {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content : center;
+    -ms-justify-content : center;
+    justify-content : center;
+}
+
+footer div {
+    width: 50%;
+}
+
+@media (min-width: 34em) {
+    header, section {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        display: flex;
+    }
+    header div, section div {
+        width: 50%;
+    }    
+}
+
+@media (min-width: 48em) {
+    main {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        display: flex;
+        text-align: center;   
+    }
+    main div {
+        width: calc(100% / 3);
+    }
+}
+
+@media (min-width: 62em) {
+    header :nth-child(1), section div {
+        width: 25%;
+    }
+    header :nth-child(2) {
+        width: 75%;
+    }  
+    section :nth-child(3), section :nth-child(4) {
+        display: initial;
+        /* ou display: block; C'est pareil */
+    }
+}
+
+@media (min-width: 75em) {
+    footer div {
+        width: 25%;
+    }     
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+   main {
+        background: url(../img/grand.jpg) center / auto no-repeat;
+    }
+}
+
+@media print {
+    header, footer, main, section {
+        background: none;
+    }
+}
+
+/*Correction version float
+/* Règles générales 
+
+body {
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  header,
+  footer {
+    background: salmon;
+  }
+  
+  main {
+    min-height: 300px;
+    background: url("../img/petit.jpg") center / cover no-repeat;
+  }
+  
+  section {
+    background: red;
+  }
+  
+  div {
+    float: left;
+    width: 100%;
+  }
+  
+  header,
+  main,
+  section,
+  footer {
+    overflow: auto;
+  }
+  
+  section :nth-child(3),
+  section :nth-child(4) {
+    display: none;
+  }
+  
+  footer div {
+    width: 50%;
+  }
+  
+/*media queries
+  
+  @media (min-width: 34em) {
+    header div,
+    section div {
+      width: 50%;
+    }
+  }
+  
+  @media (min-width: 48em) {
+    main div {
+      width: calc(100% / 3);
+    }
+  }
+  
+  @media (min-width: 62em) {
+    header :nth-child(1),
+    section div {
+      width: 25%;
+    }
+    header :nth-child(2) {
+      width: 75%;
+    }
+    section :nth-child(3),
+    section :nth-child(4) {
+      display: block;
+    }
+  }
+  
+  @media (min-width: 75em) {
+    footer div {
+      width: 25%;
+    }
+  }
+  
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    main {
+      background: url("../img/grand.jpg") center / cover no-repeat;
+    }
+  }
+  
+  @media print {
+    header,
+    main,
+    section,
+    footer {
+      background: none;
+    }
+  }*/
+
+  /* correction version flex
+  /* Règles générales 
+body {
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  header,
+  footer {
+    background: salmon;
+  }
+  
+  main {
+    min-height: 300px;
+    background: url("../img/petit.jpg") center / cover no-repeat;
+  }
+  
+  section {
+    background: red;
+  }
+  
+  div {
+    width: 100%;
+  }
+  
+  header,
+  main,
+  section,
+  footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  section :nth-child(3),
+  section :nth-child(4) {
+    display: none;
+  }
+  
+  footer div {
+    width: 50%;
+  }
+  
+  /* Medias queries
+  
+  @media (min-width: 34em) {
+    header div,
+    section div {
+      width: 50%;
+    }
+  }
+  
+  @media (min-width: 48em) {
+    main div {
+      width: calc(100% / 3);
+    }
+  }
+  
+  @media (min-width: 62em) {
+    header :nth-child(1),
+    section div {
+      width: 25%;
+    }
+    header :nth-child(2) {
+      width: 75%;
+    }
+    section :nth-child(3),
+    section :nth-child(4) {
+      display: block;
+    }
+  }
+  
+  @media (min-width: 75em) {
+    footer div {
+      width: 25%;
+    }
+  }
+  
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    main {
+      background: url("../img/grand.jpg") center / cover no-repeat;
+    }
+  }
+  
+  @media print {
+    header,
+    main,
+    section,
+    footer {
+      background: none;
+    }
+  }
+  */

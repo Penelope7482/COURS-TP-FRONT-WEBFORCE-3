@@ -1,0 +1,2 @@
+1. Créez une balise ‘main’ dans le body, qui doit occuper tout l’espace de la fenêtre et avoir un fond gris
+2. Lorsque l’utilisateur swipe à droite, le fond doit devenir bleu, à gauche doit devenir violet, en haut doit devenir rouge, et en bas doit devenir jaune

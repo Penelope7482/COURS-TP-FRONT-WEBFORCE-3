@@ -1,0 +1,248 @@
+@font-face {
+    font-family: 'liberation_sansregular';
+    src: url('../fonts/LiberationSans-Regular-webfont.eot');
+    src: url('../fonts/LiberationSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/LiberationSans-Regular-webfont.woff') format('woff'),
+         url('../fonts/LiberationSans-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/LiberationSans-Regular-webfont.svg#liberation_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'liberation_sansbold';
+    src: url('../fonts/LiberationSans-Bold-webfont.eot');
+    src: url('../fonts/LiberationSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/LiberationSans-Bold-webfont.woff') format('woff'),
+         url('../fonts/LiberationSans-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/LiberationSans-Bold-webfont.svg#liberation_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body, html {
+	font-family: 'liberation_sansregular', sans-serif;
+	font-size: 100%;
+	min-width: 300px;
+}
+
+.bold, figcaption, .low, .regular {
+	font-family: 'liberation_sansbold';
+}
+
+
+
+a, a:hover {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+ul, li {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+figcaption {
+	font-size: .8em;
+}
+
+
+
+/* Header */
+
+header, footer nav, .menufooter nav{
+	background: url("../img/background.jpg") top left / 6px auto ;
+}
+
+
+
+
+
+
+
+
+
+.account {
+	border: 1px solid black;
+	background: rgba(76,76,76, 0.06);
+}
+
+.compte, .panier {
+	line-height: 2.5em;
+}
+
+.membre {
+	font-size: 1.4em;
+}
+
+.compte a{
+	background: url("../img/icon-mon-compte.png") left center / auto 40px no-repeat;
+	display: inline-block;
+	padding-left: 50px;
+}
+
+.panier a{
+	background: url("../img/icon-mon-panier.png") left center / auto 40px no-repeat;
+	display: inline-block;
+	padding-left: 50px;
+}
+
+header img {
+	width: 300px;
+}
+
+h1{
+	font-size: 1.5em;
+	font-weight: normal;
+}
+h1 span {
+	color: #ea9f05;
+}
+
+/* Main */
+
+main {
+	background: #1c1c1c;
+}
+
+main .container {
+	background: #f3f3f3;
+}
+
+
+
+section figure {
+	background: white;
+	position: relative;
+}
+section figcaption {
+	position: absolute;
+	bottom:0;
+	width: 100%;
+}
+
+.pourcent {
+	z-index: 10;
+	top: 10px;
+	right: 0px;
+	border-radius: 5px;
+	background: #3a3a3a;
+	color: #ea9f05;
+	padding: 5px 10px;
+	font-size: 1.8em;
+}
+
+.bouton {
+	background: #2b2b2b;
+	color: white;
+}
+
+.regular {
+	color: #ea9f05;
+	font-weight: bold;
+	font-size: 1.5em;
+	line-height: 1.1em;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.low {
+	text-decoration: line-through;
+	vertical-align: top;
+	font-size: 1.5em;
+	line-height: 1.1em;
+	display: inline-block;
+}
+
+
+
+.containermenu .container{
+	height: 20px;
+}
+
+.containermenu {
+	background: #1c1c1c;
+}
+.containermenu .container {
+	background: #f3f3f3;
+}
+.menufooter nav{
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+
+}
+.menufooter li{
+	line-height: 1em;
+
+}
+
+
+/* Footer */
+
+footer {
+	background: #373737;
+}
+footer .container img{
+	width: 30%;
+}
+.footerinfo{
+	color: white;
+	padding: 0px 0px;
+	font-size: 0.8em;
+}
+
+
+.barre {
+	border-top: 20px solid #373737;
+}
+.separation {
+	border-top: 2px solid #868686;
+	max-width: 600px;
+}
+.social nav{
+	background: none;
+}
+.social nav img {
+	width: auto;
+	height: 40px;
+}
+.copyright {
+	color: white;
+}
+
+/* Règles en responsive */
+
+@media (min-width: 48em) {
+
+	.footerinfo{
+		padding: 0px 100px;
+	}
+	.menufooter li::after {
+		content:'•';
+		color: #d2d2d2;
+		font-size: 3em;
+		vertical-align: bottom;
+	}
+	.menufooter li:last-of-type::after {
+		content:'';
+	}
+	.regular, .low  {
+		font-size: 2em;
+	}
+
+	figcaption {
+		font-size: 1.2em;
+	}
+}
+
+

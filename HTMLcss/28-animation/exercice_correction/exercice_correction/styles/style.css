@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -ms-justify-content: center;
+  -ms-align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  transition: 1s;
+}
+
+div:hover img {
+  -webkit-transform: rotateY(360deg) scale(1.5);
+  -ms-transform: rotateY(360deg) scale(1.5);
+  transform: rotateY(360deg) scale(1.5);
+}

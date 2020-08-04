@@ -1,0 +1,14 @@
+body
+
+{
+    margin: 0px;
+    min-height: 100vh;
+   /*  background-color: #0dafde ;
+    background-image: url("../img/nuages.png"), url("../img/plage.jpg");
+    background-repeat: repeat-x; 
+    background-position: left top, bottom center;
+    background-size: auto, 100%; */
+
+     background:  url(../img/nuages.png) left top/auto repeat-x,  url(../img/plage.jpg) bottom/100% no-repeat, #0dafde ; 
+
+}

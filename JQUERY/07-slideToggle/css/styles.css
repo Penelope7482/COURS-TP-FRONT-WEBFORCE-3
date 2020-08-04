@@ -1,0 +1,19 @@
+header, header a {
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+.bouton {
+    font-size:40px;
+    font-weight: bold;
+}
+
+ul {
+    display:none;
+
+}
+
+li {
+    list-style: none;
+}

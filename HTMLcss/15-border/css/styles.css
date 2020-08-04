@@ -1,0 +1,30 @@
+div{
+    background-color: gray;
+    overflow: auto;
+}
+
+.voisin, .monjardin{
+    width: 300px;
+    height: 300px;
+    float: left;
+    background: url(../img/maison.png) center /  auto no-repeat, url(../img/jardin.jpg);
+    font-family:  Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    padding: auto;
+}
+
+.voisin{
+    padding: 30px;
+    border: 20px solid goldenrod;
+}
+
+.monjardin{
+    margin: 20px 20px 0px 0px;
+    border-width: 10px 10px 10px 0px;
+    border-style: double;
+    border-color: goldenrod;
+}
+

@@ -1,0 +1,933 @@
+/*
+CE FICHIER CONSTITUE UNE PARTIE DU LOGICIEL Vitamine CMS.
+* Le Logiciel Initial "Vitamine CMS" (non modifié par une contribution) est distribuée
+	par la Société STUDIO VITAMINE S.A.R.L dont le siège est Hôtel TIC - 1, rue Alexander Fleming – 17000 La Rochelle - France.
+	(Site Internet : www.studiovitamine.com - Téléphone 05 46 07 23 16)
+* Tous les éléments constitutifs du logiciel Vitamine CMS
+	sont la création de Fabien Guy BRANCHUT, l'Auteur de logiciel, né en France le 11 mars 1974 à Angoulême (16).
+	(Site Internet : www.fabien-branchut.fr - Téléphone : 06 60 80 26 02)
+*/
+/*
+##################################################
+Liste des classes CSS et id réservés :
+##################################################
+UTILISER PAR LE FRONT-OFFICE
+.divZoneEdition
+#divZoneEdition_<idZoneEdition>
+.divArticle
+.divArticleNom
+.divArticleContenu
+.divArticleImage1
+#divArticle_<idArticle>
+.divArticleGabarit_<idArticleGabarit>
+
+UTILISER PAR LE ADMIN/FRONT-OFFICE (=BoFo)
+toutes les classes ou id contenant la chaine "BoFo" ainsi que :
+.divGabarit
+#divGabarit_<idGabarit>
+.divPlanDuSite
+##################################################
+fin => Liste des classes CSS systèmes réservées
+##################################################
+*/
+
+/********************************************/
+/* 
+	Généralités
+*/
+/********************************************/
+*{
+	margin:0px;
+	padding:0px;
+	font-family:arial;
+	font-size:12px;
+	color:#000000;
+}
+body{
+	background-image:url("../image/idSite_32/background.gif");	
+}
+table{
+	border-collapse:collapse;
+}
+table caption{
+	display:none;
+}
+table thead{
+	display:none;
+}
+table tr td{
+	vertical-align:top;
+}
+h1{
+	font-size:26px;
+	line-height:0px; /* sinon ya une marge en bas */
+	color:#ff3366;
+	margin-bottom:10px;
+}
+h1.h1Special{
+	display:none;	
+}
+ul{
+	margin-left:10px;
+	list-style-type: none;
+}
+
+}
+ol{
+	margin-left:10px;
+}
+ul li{
+	background-image:url("../image/idSite_32/menu.gif"); /* permet de créer un marge entre les puces et une image "float:left;", sinon les puces entre dans l'image, ne fonctionne que sur FF */
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+	padding-left:10px;
+	margin-bottom:2px;
+}
+ul li a{
+	text-decoration:none;
+}
+
+ol li{
+	margin-left:25px; /* permet de créer un marge entre les puces numérotées et une image "float:left;", sinon les puces entre dans l'image, ne fonctionne que sur FF (pas trouver de solution sur IE), comme les puces sont numérotées il est impossible de mettre une image en background pour substituer la puce, comme on fait normalement avec les <ul><li> */
+	margin-bottom:2px;
+}
+ol li a{
+	text-decoration:none;
+}
+fieldset{
+	padding:10px;	
+	margin-bottom:15px;
+}
+legend{
+	padding-left:5px;	
+	padding-right:5px;
+	font-weight:bold;	
+}
+textarea{
+	width:95%;	
+}
+em,i{
+	font-style:italic;	
+}
+a img{
+	border:0px;
+}
+a:link{
+	color:#666666;	
+	text-decoration:underline;
+}
+a:visited{
+	color:#666666;
+	text-decoration:underline;	
+}
+a:hover{
+	color:#666666;
+	text-decoration:none;	
+}
+a:active{
+	color:#666666;	
+	text-decoration:underline;
+}
+a:focus{
+	color:#666666;	
+	text-decoration:none;
+}
+
+#diva.aLienSelectionner:link{
+	color:#ff3366;
+	font-weight:bold;	
+	text-decoration:none;
+	font-size:11px;
+}
+a.aLienSelectionner:visited{
+	color:#ff3366;	
+	font-weight:bold;	
+	text-decoration:none;
+	font-size:11px;
+}
+a.aLienSelectionner:hover{
+	color:#ff3366;
+	font-weight:bold;	
+	text-decoration:none;	
+	font-size:11px;
+}
+a.aLienSelectionner:active{
+	color:#ff3366;
+	font-weight:bold;	
+	text-decoration:none;
+	font-size:11px;
+}
+a.aLienSelectionner:focus{
+	color:#ff3366;
+	font-weight:bold;	
+	text-decoration:none;
+	font-size:11px;
+}
+
+
+/********************************************/
+/* 
+	Structure du site
+*/
+/********************************************/
+#divGlobal{
+	background-image:url("../image/idSite_32/background-statique.gif");
+	background-repeat:no-repeat;
+	background-position:center top;
+}
+#divGeneral{
+	width:807px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:92px;	
+}
+/* BANDEAU */
+#divBandeau{
+	position:relative;
+	text-align:center;
+	background-image:url("../image/idSite_32/banniere.gif");
+	height:130px;
+}
+#divBandeauLogo{
+	position:absolute;
+	top:3px;
+	left:10px;
+}
+#divBandeauDrapeau{
+	position:absolute;
+	top:0px;
+	right:10px;
+}
+#divBandeauDrapeau a{
+	font-size:10px;
+	text-decoration:none;
+}
+#divBandeauDrapeau td{
+	padding:5px;
+}
+#divBandeauDrapeau td img{
+	margin-bottom:3px;
+}
+#divBandeau #divBandeauThemeAssocier{
+	overflow:hidden;
+	height:0px;
+}
+/* FOOTER */
+#divFooter{
+	position:relative;
+	background-image:url("../image/idSite_32/footer.gif");
+	height:14px;
+}
+#divFooter a:link{
+	font-size:11px;
+	color:#000000;
+	text-decoration:none;
+	background-color:transparent;
+}
+#divFooter a:visited{
+	font-size:11px;
+	color:#000000;
+	text-decoration:none;
+	background-color:transparent;
+}
+#divFooter a:hover{
+	font-size:11px;
+	color:#000000;
+	text-decoration:underline;
+	background-color:transparent;
+}
+#divFooter a:active{
+	font-size:11px;
+	color:#000000;
+	text-decoration:none;
+	background-color:transparent;
+}
+#divFooter a:focus{
+	font-size:11px;
+	color:#000000;
+	text-decoration:underline;
+	background-color:transparent;
+}
+#divFooter a.aLienSelectionner{
+	text-decoration:underline;
+}
+#divFooter #divFooter2{
+	position:absolute;
+	top:0px;
+	right:0px;
+	padding-right:7px;
+	color:#000000;
+}
+#divFooter span{
+	font-size:14px;
+	color:#000000;
+}
+#divFooter #divByStudioVitamine{
+	position:absolute;
+	bottom:-35px;
+	right:10px;
+	font-size:10px;
+}
+#divFooter #divByStudioVitamine div{
+	font-size:10px;
+	color:#000000;
+	text-align:right;
+}
+#divFooter #divByStudioVitamine a{
+	color:#000000;
+	text-decoration:none;
+	font-size:10px;
+	background-color:transparent;
+} 
+#divFooter #divByStudioVitamine #divByStudioVitamineImgYo{
+	position:absolute;
+	bottom:0px;
+	left:-90px;
+}
+#divFooter #divByStudioVitamine #imgByStudioVitamineYo{
+	display:none;
+}
+#divFooter #divFooterThemeAssocier{
+	position:absolute;
+	top:40px;
+	left:0px;
+	width:650px;
+	text-align:justify;
+	font-size:9px;
+	color:#555555;
+}
+#divFooter #divFooterThemeAssocier strong{
+	text-align:left;
+	font-size:10px;
+	color:#555555;
+}
+#divFooter #divFooterThemeAssocier a{
+	font-size:9px;
+	color:#555555;
+	text-decoration:none;
+	cursor:default;
+}
+#divFooterLien {
+	position:absolute;
+	top:15px;
+	left:5px;
+}
+/* PAGE INTERNE */ 
+#divPageInterne{	
+	background-image:url("../image/idSite_32/bgdeg.gif");
+	min-height:520px;
+	padding-left:15px;
+	padding-right:13px;
+	width:779px;
+} 
+#divPageInterne2{	
+	padding-left:20px;
+	padding-right:30px;
+	padding-bottom:20px;
+	padding-top:15px;
+} 
+/* CENTRE */
+/*#tableCentre{
+	width:807px;
+	height:550px;
+	background-color:#eeeeee;
+}
+#tableCentre #tdGaucheTableCentre{
+	width:200px;
+	background-color:#dddddd;
+	padding:10px;
+}
+#tableCentre #tdCentreTableCentre{
+	background-color:#ffffff;
+	overflow-x:hidden;width:580px;	/* pour IE, évite que les h1 trop long générer par dynamicFont eclate la page */	
+*//*}
+#tableCentre #tdDroiteTableCentre{
+	width:200px;
+	background-color:#dddddd;
+}*/
+/********************************************/
+/* 
+	Les zones d'édition
+*/
+/********************************************/
+.divZoneEdition{
+	padding:10px;
+}
+/********************************************/
+/* 
+	Les gabarits d'articles
+*/
+/********************************************/
+/* texte + image à gauche */
+.divArticleGabarit_30 .divArticleImage1{
+	float:left;
+}
+.divArticleGabarit_30 .divArticleImage1 table{
+	width:1px;
+}
+.divArticleGabarit_30 .divArticleImage1 table tr td{
+	padding-right:10px;
+	padding-bottom:5px;
+	font-style:italic;
+}
+/* texte + image à gauche (pour colonne) */
+.divArticleGabarit_23 .divArticleImage1{
+	float:left;
+}
+.divArticleGabarit_23 .divArticleImage1 table{
+	width:1px;
+}
+.divArticleGabarit_23 .divArticleImage1 table tr td{
+	padding-right:10px;
+	padding-bottom:5px;
+	font-style:italic;
+}
+/* texte + image à droite */
+.divArticleGabarit_9 .divArticleImage1{
+	float:right;
+}
+.divArticleGabarit_9 .divArticleImage1 table{
+	width:1px;
+}
+.divArticleGabarit_9 .divArticleImage1 table tr td{	
+	padding-left:10px;
+	padding-bottom:5px;
+	font-style:italic;
+}
+/* image large */
+.divArticleGabarit_21 .divArticleImage1 table{
+	width:1px;
+}
+.divArticleGabarit_21 .divArticleImage1 table tr td{
+	padding-bottom:5px;
+	font-style:italic;
+}
+/* image large (pour colonne) */
+.divArticleGabarit_24 .divArticleImage1{
+	overflow:hidden;
+}
+.divArticleGabarit_24 .divArticleImage1 table{
+	width:1px;
+}
+.divArticleGabarit_24 .divArticleImage1 table tr td{
+	padding-bottom:5px;
+	font-style:italic;
+}
+/* lien vers les pages filles */
+.divArticleGabarit_11 .divArticleContenu div{
+	margin-bottom:2px;
+}
+.divArticleGabarit_11 .divArticleContenu a{
+	text-decoration:none;
+}
+/* plan du site */
+.divArticleGabarit_34 .divArticleContenu{
+	padding-left:100px;
+}
+.divArticleGabarit_34 .divArticleContenu div{
+	margin-bottom:10px;
+}
+.divArticleGabarit_34 .divArticleContenu .divPlanDuSiteRacine{
+	background-image:url("../image/idSite_4/puceCarre.gif"); /* permet de créer un marge entre les puces et une image "float:left;", sinon les puces entre dans l'image, ne fonctionne que sur FF */
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+	padding-left:10px;
+}
+.divArticleGabarit_34 .divArticleContenu .divPlanDuSiteRacine a{
+	text-decoration:underline;
+	font-weight:bold;
+}
+.divArticleGabarit_34 .divArticleContenu .divPlanDuSitePagePasRacine a{
+	background-color:transparent;
+	text-decoration:underline;
+	color:#000000;
+	background-image:url("../image/idSite_4/puceCarre.gif"); /* permet de créer un marge entre les puces et une image "float:left;", sinon les puces entre dans l'image, ne fonctionne que sur FF */
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+	margin-left:15px;
+	padding-left:10px;
+}
+/********************************************/
+/* 
+	Les articles génériques
+*/
+/********************************************/
+.divArticle{
+	clear:both;
+	overflow:visible;
+	margin-bottom:20px;
+}
+/* TITRE */
+.divArticleNom h2{
+	margin-bottom:10px;
+	font-weight:none;
+	font-size:14px;
+	font-family:verdana;
+	color:#000000;
+	overflow-x:hidden;	/* pour IE, évite que les h2 trop long générer par dynamicFont eclate la page */
+}
+/* CONTENU => GRAS */
+.divArticleContenu b{
+	color:#000;
+}
+/* CONTENU => GRAS + LIEN */
+.divArticleContenu b a:link{
+	color:#ffffff;	
+	background-color:#333333;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+.divArticleContenu b a:visited{
+	color:#ffffff;	
+	background-color:#333333;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+.divArticleContenu b a:hover{
+	color:#ffffff;	
+	background-color:#A42D1B;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+.divArticleContenu b a:active{
+	color:#ffffff;	
+	background-color:#333333;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+.divArticleContenu b a:focus{
+	color:#ffffff;	
+	background-color:#A42D1B;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+/* CONTENU => LIEN + GRAS */
+.divArticleContenu a b{
+	color:#ffffff;	
+	background-color:#333333;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+.divArticleContenu a b:hover{
+	color:#ffffff;	
+	background-color:#A42D1B;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+/* CONTENU => LIEN */
+.divArticleContenu a:link{
+	color:#000000;	
+	background-color:transparent;
+	padding-left:1px;
+	padding-right:1px;
+}
+.divArticleContenu a:visited{
+	color:#000000;	
+	background-color:transparent;
+	padding-left:1px;
+	padding-right:1px;
+}
+.divArticleContenu a:hover{
+	color:#000000;	
+	background-color:transparent;
+	padding-left:1px;
+	padding-right:1px;
+}
+.divArticleContenu a:active{
+	color:#000000;	
+	background-color:transparent;
+	padding-left:1px;
+	padding-right:1px;
+}
+.divArticleContenu a:focus{
+	color:#000000;	
+	background-color:transparent;
+	padding-left:1px;
+	padding-right:1px;
+}
+/* CONTENU => LIEN (selectionné) */
+.divArticleContenu a.aLienSelectionner:link{
+	background-color:#000000;
+	color:#ffffff;	
+}
+.divArticleContenu a.aLienSelectionner:visited{
+	background-color:#000000;
+	color:#ffffff;	
+}
+.divArticleContenu a.aLienSelectionner:hover{
+	background-color:#000000;
+	color:#ffffff;	
+}
+.divArticleContenu a.aLienSelectionner:active{
+	background-color:#000000;
+	color:#ffffff;	
+}
+.divArticleContenu a.aLienSelectionner:focus{
+	background-color:#000000;
+	color:#ffffff;	
+}
+/* le reste */
+.divArticleContenu ul{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.divClearBoth{
+	clear:both;
+	height:1px;
+	overflow:hidden;
+}
+/********************************************/
+/* 
+	Les articles par zones d'édition
+*/
+/********************************************/
+/* zone d'édition principale */
+#divZoneEdition_1 .divArticle{
+	background-color:transparent;	/* à cause de IE, de dynamicFont et de interface.js */
+}
+#divZoneEdition_1 .divArticle .divArticleContenu b{
+	color:#000000;
+}
+#divZoneEdition_1 .divArticle .divArticleContenu a b{
+	color:#ffffff;
+}
+/* colonne de gauche */
+#divZoneEdition_7 .divArticle{
+	background-color:transparent;	/* à cause de IE, de dynamicFont et de interface.js */
+}
+#divZoneEdition_7 .divArticle .divArticleNom h2{
+	font-size:16px;
+}
+#divZoneEdition_7 .divArticle .divArticleContenu *{
+	font-size:11px;
+}
+#divZoneEdition_7 .divArticle .divArticleContenu b{
+	color:#000000;
+}
+#divZoneEdition_7 .divArticle .divArticleContenu a b{
+	color:#ffffff;
+}
+#divZoneEdition_7 .divArticle .divArticleImage1 img{
+}
+/* colonne du centre */
+#divZoneEdition_9 .divArticle{
+	background-color:transparent;	/* à cause de IE, de dynamicFont et de interface.js */
+}
+#divZoneEdition_9 .divArticle .divArticleNom h2{
+	font-size:16px;
+}
+#divZoneEdition_9 .divArticle .divArticleContenu *{
+	font-size:11px;
+}
+#divZoneEdition_9 .divArticle .divArticleContenu b{
+	color:#000000;
+}
+#divZoneEdition_9 .divArticle .divArticleContenu a b{
+	color:#ffffff;
+}
+#divZoneEdition_9 .divArticle .divArticleImage1 img{
+}
+/* colonne de droite */
+#divZoneEdition_4 .divArticle{
+	background-color:transparent;	/* à cause de IE, de dynamicFont et de interface.js */
+}
+#divZoneEdition_4 .divArticle .divArticleNom h2{
+	font-size:16px;
+}
+#divZoneEdition_4 .divArticle .divArticleContenu *{
+	font-size:11px;
+}
+#divZoneEdition_4 .divArticle .divArticleContenu b{
+	color:#000000;
+}
+#divZoneEdition_4 .divArticle .divArticleContenu a b{
+	color:#ffffff;
+}
+#divZoneEdition_4 .divArticle .divArticleImage1 img{
+}
+/* tableau à 2 colonne > colonne de gauche (grosse) ( */
+#divZoneEdition_10 .divArticle .divArticleContenu b{
+	color:#000000;
+}
+#divZoneEdition_10 .divArticle .divArticleContenu a b{
+	color:#ffffff;	
+	background-color:#333333;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+#divZoneEdition_10 .divArticle .divArticleContenu a b:hover{
+	color:#ffffff;	
+	background-color:#A42D1B;
+	padding-left:1px;
+	padding-right:1px;
+	font-weight:normal;
+}
+/* tableau à 2 colonne > colonne de droite (petite) ( */
+/*
+#divZoneEdition_11 .divArticle .divArticleContenu b{
+	background-color:transparent;
+	color:#a22712;
+}
+#divZoneEdition_11 .divArticle .divArticleContenu a{
+	background-color:transparent;
+	color:#000000;
+	text-decoration:underline;
+}
+*/
+/********************************************/
+/* 
+	Les articles spécifiques
+*/
+/********************************************/
+/* formulaire de contact */
+#divArticle_103 .divArticleNom h2{
+	width:500px;
+}
+/********************************************/
+/* 
+	Fil d'ariane
+*/
+/********************************************/
+#divFilAriane{
+	padding-top:1px;
+	padding-left:3px;
+	font-size:10px;
+	position:relative;
+	top:-10px;
+}
+#divFilAriane a{
+	font-size:10px;
+	color:#000000;
+	text-decoration:underline;
+}
+/********************************************/
+/* 
+	Modalbox 1 (boite d'authentification)
+	la 2,3 et 4 sont réservés au BoFo
+*/
+/********************************************/
+#divModalBox_1			{margin-left:auto;margin-right:auto;margin-top:50px;border:1px solid #000000;background-color:#dddddd;}
+#divModalBox_1_titre	{border:1px solid #ffffff;font-weight:bold;font-size:12px;padding:5px;padding-left:55px;border-bottom:1px solid #ffffff;background-color:#ed217c;color:#ffffff;background-image:url('../admin/image/logoVitamineCMS3PointBlanc.gif');background-repeat:no-repeat;background-position:7px 7px;}
+#divModalBox_1_close	{cursor:pointer;right:0px;border:1px solid #ffffff;color:#ffffff;padding:1px;padding-left:5px;padding-right:5px;margin-top:3px;margin-right:5px;}
+#divModalBox_1_contenu	{border:1px solid #ffffff;border-top:0px solid #ffffff;background-color:#ffffff;padding:0px;}
+.divModalBox_1_fond		{background-color:#000000;}
+/********************************************/
+/* 
+	Modalbox 5 (POP-UP)
+	la 2,3 et 4 sont réservés au BoFo
+*/
+/********************************************/
+#divModalBox_5			{margin-left:auto;margin-right:auto;margin-top:50px;border:1px solid #000000;background-color:#dddddd;}
+#divModalBox_5_titre	{border:1px solid #ffffff;border-top:1px solid #ffffff;font-weight:bold;font-size:12px;padding:5px;padding-left:15px;background-color:#a42d1b;color:#ffffff;}
+#divModalBox_5_close	{cursor:pointer;right:0px;border:1px solid #ffffff;color:#ffffff;padding:1px;padding-left:5px;padding-right:5px;margin-top:4px;margin-right:5px;}
+#divModalBox_5_contenu	{border:1px solid #ffffff;border-top:0px solid #ffffff;background-color:#ffffff;padding:0px;}
+.divModalBox_5_fond		{background-color:#000000;}
+/********************************************/
+/* 
+	Les menus de navigation
+*/
+/********************************************/
+
+#divMenuNavigation{
+	background-image:url("../image/idSite_32/bgdeg.gif");
+	padding-left:15px;
+	padding-right:14px;
+	width:778px;
+}
+#divMenuNavigation li{
+	display: inline;
+}
+#divMenuNavigation li a{
+	font-family: verdana;
+	font-size: 10px;
+	color: #ff3366;
+	font-weight: bold;
+	text-decoration: none;
+}
+#divMenuNavigation .divPlanDuSiteMenuNavigation{
+	float:right;
+	border-left:1px solid #feb9ca;
+}
+.divPlanDuSite .divMenuNavigationProfondeur1 .divLienMenuNavigationProfondeur1{
+	margin-bottom:1px;
+	cursor:pointer;
+	text-align:center;
+}
+.divPlanDuSite .divMenuNavigationProfondeur1 .divLienMenuNavigationProfondeur1 a{
+	color:#ffffff;
+	font-size:11px;
+	text-decoration:none;
+	background-color:transparent;
+}
+.divPlanDuSite .divMenuNavigationProfondeur1 .divLienMenuNavigationProfondeur1Selectionner{
+	cursor:pointer;
+}
+#divMenuLinks{
+	border-top:1px solid #feb9ca;
+	border-bottom:1px solid #feb9ca;
+	float:left;
+	background-color:#fce7ec;
+	height:16px;
+	padding-top:2px;
+	background-image:url("../image/idSite_32/puce.gif");
+	background-repeat:no-repeat;
+	background-position: 0px 7px;
+}
+#divMenuLinks a{
+	margin-left:15px;
+	margin-right:15px;
+	font-size:10px;
+	font-weight:bold;
+	text-decoration:none;
+	color:#ff3366;
+	font-family:verdana;
+}
+#divMenuLinks a:hover{
+	font-size:10px;
+	font-weight:bold;
+	text-decoration:none;
+	color:#fd6b90;
+	font-family:verdana;
+}
+/********************************************/
+/* 
+	Les formulaires
+*/
+/********************************************/
+input.inputText{
+	width:95%;
+	border:1px solid #feb9ca;
+	padding-left:1px;
+}
+input.inputTextFocus{
+	border:1px solid #ff6289;
+}
+input.inputTextMessageWrong{
+	border:1px solid #ff0000;
+}
+textarea.textarea{
+	border:1px solid #feb9ca;
+}
+textarea.textareaFocus{
+	border:1px solid #ff0000;
+}
+textarea.textareaMessageWrong{
+	border:1px solid #ff0000;
+}
+.divResizeTextareaExterne{
+	cursor: ns-resize;
+	cursor: n-resize;
+}
+.divResizeTextareaInterne{
+	width: 500px;
+	height: 8px;
+	background-color:#b5b5b5;
+	background-image:url("../image/idSite_4/elargisseurConteneurBasBg.gif");
+	background-repeat:no-repeat;
+	background-position:center center;
+	position: absolute;
+	bottom:4;
+	left:0;
+	overflow: hidden;
+	font-size: 1px;
+}
+/********************************************/
+/* 
+	Generateur Lorem Ipsum
+*/
+/********************************************/
+.divFondPage{
+	background-image:url("../image/idSite_32/traitnoir.gif");
+	background-position: 160px 0;
+	background-repeat: repeat-y;
+}
+.divConteneurGauche{
+	float:left;
+	width:175px;
+	height:250px;
+}
+.divConteneurGaucheTexte label{
+	font-size:11px;
+	font-family:verdana;
+	font-weight:bold;	
+	color:#848383;
+	line-height: 20px;
+}
+.divConteneurDroite{
+	float:left;
+	width:535px;
+}
+.divConteneurDroiteGenerateur textarea{
+	padding:10px;
+	border:1px solid #ffc8d6;
+	height:400px;
+	text-align:justify;
+	font-size:12px;
+	font-family:trebuchet ms;
+}
+.divBouton2 {
+	background: transparent url("../image/idSite_32/bouton2.gif") no-repeat;
+	width:121px;
+	height:23px;
+	border:none;
+}
+.tableCaractereSp thead{
+	display:table-header-group;
+	border:1px solid #CCC;
+	background-color:#fff;
+	text-align:left;
+	padding:2px;
+}
+.tableCaractereSp thead th{
+	padding:5px;
+	text-align:center;
+}
+.tableCaractereSp tbody tr td{
+	border:1px solid #CCC;
+	padding:2px;
+	background-color:#fff0f4;
+}
+.tableCaractereSp tr:hover td {
+	border:1px solid #CCC;
+	padding:2px;
+	background-color:#fe5781;
+	color:#FFFFFF;
+}
+.tableCaractereSp tbody tr th{
+	border:1px solid #CCC;
+	padding:2px;
+	font-size:14px;
+	background-color:#fe5781;
+	color:#FFFFFF;
+}
+.thCaractereSp1{
+	width:85px;	
+}
+.thCaractereSp2{
+	width:100px;	
+}
+.thCaractereSp3{
+	width:100px;	
+}
+.thCaractereSp4{
+	width:100px;	
+}
+.thCaractereSp5{
+	width:261px;	
+}
+
+#divFauxTextePourIE{
+	padding:10px;
+	border:1px solid #ffc8d6;
+	text-align:justify;
+	font-size:12px;
+	font-family:trebuchet ms;
+}

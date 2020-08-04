@@ -1,0 +1,49 @@
+#divInterSiteFond{ /*Affiche le fond noir sur la largeur*/
+	background-image:url("../image/idSite_30/InterSite_Fond.gif");
+	background-repeat:repeat-x;
+	height:19px;
+	width:100%;
+}
+
+.imgInterSiteImageReseauInternet{ /*Affiche l'image "Notre réseau inter" à gauche*/
+	float:left;
+	padding-left:5px;
+	padding-right:10px;
+}
+
+#menuInterSite{
+	margin:0px;
+	padding:0px;
+}
+#menuInterSite li{
+	padding:0px;
+	float:left;
+	color:#fff;
+	border-left:1px solid #ffffff;
+	list-style-type:none;
+	background-image:url();
+	margin-left:0px;
+	height:19px;
+}
+#menuInterSite li a{
+	padding-right:10px;
+	padding-left:10px;
+	display:block;
+	margin:0px;
+	color:#fff;
+	font-size:11px;
+	font-family:"Trebuchet MS",Arial,sans-serif;
+	font-weight:bold;
+	text-decoration:none;
+	height:19px;
+}
+#menuInterSite li a:hover, #nav li a:focus, #nav li a:active{
+	background-image:url("../image/idSite_30/InterSite_FondHover.gif");
+	background-position:right top;
+	background-repeat:repeat-x;
+}
+.menuInterSiteLienSelectionne{
+	background-image:url("../image/idSite_30/InterSite_FondHover.gif");
+	background-position:right top;
+	background-repeat:repeat-x;	
+}

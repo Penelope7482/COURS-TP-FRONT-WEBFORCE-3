@@ -1,0 +1,125 @@
+/* General */
+
+body,html {
+	margin:0; 
+	font-family: 'Lato', sans-serif;
+}
+
+img {
+	width: 100%; 
+	height: auto;
+}
+
+ul, li {
+	margin: 0;
+	padding:0;
+	display: inline-block;
+}
+
+
+
+/* Header */
+
+#header {
+background: white;
+z-index: 3;}
+
+#header a {
+	color: black;
+}
+
+
+
+/* Main */
+
+.ariane span{
+	color:#bfab8e;
+}
+
+h1 {
+	font-size: 2em;
+	font-weight: 900;
+}
+
+h1::after {
+	position: absolute;
+	content:'';
+	bottom:0;
+	left: calc(50% - 50px);
+	width: 100px;
+	height: 2px;
+	background: black;
+}
+
+h2 {
+	font-size: 1em;
+	font-weight: 700;
+}
+
+#content header {
+	height: 500px;
+	background: url('../img/background.jpg') center / cover no-repeat;
+}
+
+hr {
+	border-top: 2px solid white;
+	margin-bottom:0;
+}
+
+form {
+	display:block;
+	background:#bfab8e ;
+}
+
+legend {
+		border-radius: 20px;
+	background: white;
+	padding: 5px 15px;
+	border: none;
+	color: #bfab8e ;
+	font-size: 1em;
+	display: inline-block;
+	width: auto;
+}
+
+input {
+	border: 2px solid white;
+	background: none;
+	margin-top: 20px;
+	color: white;
+	text-align: center;
+}
+
+input[type="submit"] {
+	border-radius: 20px;
+	background: black;
+	padding: 5px 15px;
+	border: none;
+	color: #bfab8e ;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+#visit-info {
+	border: 2px solid #bfab8e;
+}
+/* Footer */
+
+footer {
+	border-top: 2px solid #bfab8e;
+}
+
+footer a{
+	color: #d92525;
+}

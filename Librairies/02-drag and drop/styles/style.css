@@ -1,0 +1,23 @@
+#panier1, #panier2 {
+    height: 175px;
+    width: 250px;
+    background: url("../img/panier.jpg");
+opacity: 0.5;
+}
+
+#pomme, #banane {
+    height: 155px;
+    width: 150px;
+}
+
+#pomme {
+    background: url("../img/pomme.png");
+}
+
+#banane {
+    background: url("../img/banane.png");
+}
+
+#draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+  
